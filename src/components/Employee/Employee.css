@@ -1,0 +1,37 @@
+body {
+    font-family: trade-gothic, Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(65, 143, 222)
+}
+
+.container {
+    margin: auto;
+    width: 1140px;
+    margin-top: 30px;
+    background-color: rgb(65, 143, 222);
+}
+
+/* Main page CSS */
+.deptBtn {
+    border-radius: 50px;
+    background-color: rgb(252, 163, 17);
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    border: solid 5px white;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding-top: 75px;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+#row1 {
+    margin: auto;
+}
