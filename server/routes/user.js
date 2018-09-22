@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
 
-router.post('/', (req, res) => {
+router.post('/user/', (req, res) => {
 
     const { username, password, rolename, firstname, lastname } = req.body
     // ADD VALIDATION
@@ -31,8 +31,26 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/employees/', (req, res) => {
+
+    User.find({
+        rolename: "Employee"
+    }).sort({ "lastname": 1 }).then(function (employees) {
+        res.json(employees); console.log("Employees " + employees)
+    })
+})
+
+router.get('/onBreak/', (req, res) => {
+
+    User.find({
+        onbreak: true
+    }).sort({ "lastname": 1 }).then(function (employees) {
+        res.json(employees); console.log("Employees " + employees)
+    })
+})
+
 router.post(
-    '/login',
+    '/user/login',
     function (req, res, next) {
 
         next()
@@ -43,25 +61,48 @@ router.post(
             username: req.user.username,
             rolename: req.user.rolename,
             firstname: req.user.firstname,
-            lastname: req.user.lastname
+            lastname: req.user.lastname,
+            onbreak: req.user.onbreak
         };
         res.send(userInfo);
     }
 )
 
-router.get('/', (req, res, next) => {
+router.get('/user/', (req, res, next) => {
     if (req.user) {
-        res.json({ user: req.user })
+        User.findOne({
+            username: req.user.username
+        }).then(function (user) {
+            res.json(user);
+        })
     } else {
         res.json({ user: null })
     }
 })
 
-router.get('/:id', (req, res, next) => {
-
+router.get('/id', (req, res, next) => {
+    User.findOne({
+        username: req.user.username
+    }).then(function (user) {
+        res.json(user);
+    })
 })
 
-router.post('/logout', (req, res) => {
+router.post("/update", (req, res, next) => {
+    console.log("user " + req.body.username + " break status " + req.body.onbreak)
+    User.findOneAndUpdate({ username: req.body.username }, {
+        $set: {
+            onbreak: req.body.onbreak
+        }
+    },
+        (err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
+        })
+});
+
+
+router.post('/user/logout', (req, res) => {
     if (req.user) {
         req.logout()
         res.send({ msg: 'logging out' })

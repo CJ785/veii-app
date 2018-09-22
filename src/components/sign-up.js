@@ -7,8 +7,7 @@ class Signup extends Component {
 		this.state = {
 			username: '',
 			password: 'password',
-			confirmPassword: '',
-			rolename: "",
+			rolename: "Employee",
 			firstname: "",
 			lastname: ""
 		}
@@ -19,6 +18,7 @@ class Signup extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
+		console.log(this.state)
 	}
 	handleSubmit(event) {
 		console.log('sign-up handleSubmit, username: ' + this.state.username + "role: " + this.state.rolename)
@@ -105,7 +105,7 @@ class Signup extends Component {
 							<label>Employee Role:</label>
 						</div>
 						<div className="col-3 col-mr-auto">
-							<select name="rolename" value={this.state.rolename} onChange={this.handleChange}>
+							<select name="rolename" id="rolename" value={this.state.rolename} onChange={this.handleChange}>
 								<option value="Employee">Employee</option>
 								<option value="Manager">Manager</option>
 							</select>

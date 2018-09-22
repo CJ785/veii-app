@@ -41,7 +41,8 @@ class LoginForm extends Component {
                         username: response.data.username,
                         rolename: response.data.rolename,
                         firstname: response.data.firstname,
-                        lastname: response.data.lastname
+                        lastname: response.data.lastname,
+                        onbreak: response.data.onbreak
                     })
                     // update the state to redirect to home
                     this.setState({

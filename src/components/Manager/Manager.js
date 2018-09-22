@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Signup from '../sign-up'
 import "./Manager.css"
+import EmployeeDropdown from '../EmployeeDropdown';
+import EmployeesList from '../EmployeesList'
+import OnBreak from "../onbreak"
 
 class Manager extends Component {
     constructor(props) {
@@ -62,7 +65,7 @@ class Manager extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    {/* <Supervisor name={this.props.name} /> */}
+                    <EmployeesList />
                 </div>
 
             )
@@ -71,7 +74,7 @@ class Manager extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    {/* <PartsReq name={this.props.name} /> */}
+                    {<OnBreak />}
                 </div>
 
             )
