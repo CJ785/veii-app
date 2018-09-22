@@ -104,7 +104,7 @@ class Employee extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    <Break name={this.props.name} />
+                    <Break name={this.props.name} break={this.props.break} />
                 </div>
 
             )

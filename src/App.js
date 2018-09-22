@@ -7,6 +7,7 @@ import LoginForm from './components/login-form'
 import Navbar from './components/navbar'
 import Manager from './components/Manager'
 import Employee from './components/Employee'
+import EmployeesList from './components/EmployeesList'
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,8 @@ class App extends Component {
       username: null,
       rolename: null,
       firstname: null,
-      lastname: null
+      lastname: null,
+      onbreak: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -46,7 +48,8 @@ class App extends Component {
           username: response.data.user.username,
           rolename: response.data.user.rolename,
           firstname: response.data.user.firstname,
-          lastname: response.data.user.lastname
+          lastname: response.data.user.lastname,
+          onbreak: response.data.onbreak
         })
       } else {
         console.log('Get user: no user');
@@ -62,7 +65,7 @@ class App extends Component {
     if (this.state.rolename === "Manager") {
       return <Manager />
     } else if (this.state.rolename === "Employee") {
-      return <Employee name={`${this.state.firstname} ${this.state.lastname}`} />
+      return <Employee name={`${this.state.firstname} ${this.state.lastname}`} break={this.state.onbreak} />
     }
     else {
       return <Redirect to="/login" />
@@ -94,6 +97,11 @@ class App extends Component {
           path="/signup"
           render={() =>
             <Signup />}
+        />
+        <Route
+          path="/employee"
+          render={() =>
+            <EmployeesList />}
         />
 
       </div>
