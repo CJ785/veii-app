@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Signup from '../sign-up'
 import "./Manager.css"
-import EmployeeDropdown from '../EmployeeDropdown';
-import EmployeesList from '../EmployeesList'
+import EmployeeEdit from '../EmployeeEdit'
+import EmployeeReport from '../EmployeeReport'
 import OnBreak from "../onbreak"
 
 class Manager extends Component {
@@ -65,7 +65,7 @@ class Manager extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    <EmployeesList />
+                    <EmployeeEdit />
                 </div>
 
             )
@@ -83,7 +83,7 @@ class Manager extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    {/* <Payroll name={this.props.name} /> */}
+                    <EmployeeReport />
                 </div>
 
             )

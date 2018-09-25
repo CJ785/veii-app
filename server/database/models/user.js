@@ -11,12 +11,23 @@ const userSchema = new Schema({
     rolename: { type: String, required: false, unique: false },
     firstname: { type: String, required: false, unique: false },
     lastname: { type: String, required: false, unique: false },
-    onbreak: { type: Boolean, required: true, default: false }
+    onbreak: { type: Boolean, required: true, default: false },
+    activeemployee: { type: Boolean, required: true, default: true },
+    startbreak: [
+        {
+            breakstart: String,
+        }
+    ],
+    endbreak: [
+        {
+            breakend: String,
+        }
+    ]
 })
 
 // Define schema methods
 userSchema.methods = {
-    checkPassword: function(inputPassword) {
+    checkPassword: function (inputPassword) {
         return bcrypt.compareSync(inputPassword, this.password)
     },
     hashPassword: plainTextPassword => {
@@ -25,7 +36,7 @@ userSchema.methods = {
 }
 
 // Define hooks for pre-saving
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
     if (!this.password) {
         console.log('models/user.js =======NO PASSWORD PROVIDED=======')
         next()
