@@ -8,6 +8,7 @@ import Navbar from './components/navbar'
 import Manager from './components/Manager'
 import Employee from './components/Employee'
 import EmployeesList from './components/EmployeesList'
+import Clock from './components/Clock'
 
 class App extends Component {
   constructor() {
@@ -49,7 +50,8 @@ class App extends Component {
           rolename: response.data.user.rolename,
           firstname: response.data.user.firstname,
           lastname: response.data.user.lastname,
-          onbreak: response.data.onbreak
+          onbreak: response.data.onbreak,
+          
         })
       } else {
         console.log('Get user: no user');

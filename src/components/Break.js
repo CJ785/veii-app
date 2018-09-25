@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import Clock from './Clock'
+import App from '../App'
 
-class Break extends Component {
+//const time =({Clock});
+
+export class Break extends Component {
     constructor() {
         super()
         this.state = {
             username: "",
             firstname: "",
             lastname: "",
-            onbreak: ""
+            onbreak: false,
+            startbreak: new Date().toLocaleString(),
+            endbreak: new Date().toLocaleString()
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.getUser = this.getUser.bind(this)
         this.startBreak = this.startBreak.bind(this)
         this.endBreak = this.endBreak.bind(this)
         this.updateBreak = this.updateBreak.bind(this)
+        
     }
 
     componentDidMount() {
@@ -36,7 +43,8 @@ class Break extends Component {
                     username: response.data.username,
                     firstname: response.data.firstname,
                     lastname: response.data.lastname,
-                    onbreak: response.data.onbreak
+                    onbreak: response.data.onbreak,
+                    time: response.data.time
                 })
 
             } else {
@@ -56,16 +64,22 @@ class Break extends Component {
 
     }
 
-    startBreak() {
+    startBreak(event, startbreak) {
         var takingBreak = this.state.onbreak
+        const startTime = new Date().toLocaleString()
+        console.log(startTime);
 
         if (takingBreak === false) {
             this.setState({
-                onbreak: true
-            })
+                onbreak: true,
+                time: new Date().toLocaleString()
+            });
 
 
-            alert("Break started")
+
+
+            alert("Break started, " + `${startTime}`);
+
         }
         else {
             alert("You are already on break!")
@@ -74,19 +88,26 @@ class Break extends Component {
 
     }
 
-    endBreak() {
+    endBreak(event, endbreak) {
         const endingBreak = this.state.onbreak
+        const endTime = new Date().toLocaleString()
+        console.log(endTime);
         if (endingBreak === true) {
             this.setState({
-                onbreak: false
+                onbreak: false,
+                time: new Date().toLocaleString()
+
+
             })
-            alert("Break ended")
+
+            alert("Break ended, " + `${endTime}`);
         }
         else {
             alert("You aren't on break")
         }
 
     }
+
 
     render() {
 
@@ -107,13 +128,14 @@ class Break extends Component {
                             </div>
                             <div className="form-group">
                                 <div>
-                                    <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak}>Initiate Restroom Break</button>
-                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak}>Return From Restroom</button>
+                                    <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak} onChange={this.updateClock} >Initiate Restroom Break</button>
+                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak} onChange={this.updateClock}>Return From Restroom</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                <Clock />
             </div>
         )
     }
