@@ -53,6 +53,7 @@ class LoginForm extends Component {
                     })
                 }
             }).catch(error => {
+                alert("Invalid username, please try again")
                 console.log('login error: ')
                 console.log(error);
 
