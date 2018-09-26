@@ -3,7 +3,7 @@ import Signup from '../sign-up'
 import "./Manager.css"
 import EmployeeEdit from '../EmployeeEdit'
 import EmployeeReport from '../EmployeeReport'
-import OnBreak from "../onbreak"
+import OnBreak from "./OnBreak"
 
 class Manager extends Component {
     constructor(props) {

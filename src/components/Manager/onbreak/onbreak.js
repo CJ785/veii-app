@@ -22,7 +22,7 @@ class OnBreak extends Component {
             this.setState({
                 employees: initialList,
             })
-            console.log(this.state.employees[0].firstname)
+            //console.log(this.state.employees[0].firstname)
         });
     }
 
