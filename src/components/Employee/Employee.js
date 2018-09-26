@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import "./Employee.css"
-import Break from "../Break"
-import HR from "../Hr"
-import Maintenance from "../Maintenance"
-import PartsReq from "../PartsReq"
-import Payroll from "../Payroll"
-import Supervisor from "../Supervisor"
+import Break from "./Break"
+import HR from "./Hr"
+import Maintenance from "./Maintenance"
+import PartsReq from "./PartsReq"
+import Payroll from "./Payroll"
+import Supervisor from "./Supervisor"
 
 class Employee extends Component {
     constructor(props) {
