@@ -11,7 +11,7 @@ function HR(props) {
     return (
 
 
-        <div className=" yo" >
+        <div className="hr-container" >
             <div className="row" >
                 <div className='title ' id="hey">
                     <h2 className="black"> HR</h2>
