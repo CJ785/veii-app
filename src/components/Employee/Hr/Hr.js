@@ -2,10 +2,10 @@ import React from 'react';
 import Select from 'react-select'
 function HR(props) {
     const options = [
-        { value: '1', label: '1' },
-        { value: '2', label: '2' },
-        { value: '3', label: '3' },
-        { value: '4', label: '4' }
+        { value: '1', label: 'Payroll' },
+        { value: '2', label: 'Concerns' },
+        { value: '3', label: 'Employment' },
+        { value: '4', label: 'Records' }
     ];
 
     return (
@@ -25,13 +25,13 @@ function HR(props) {
                         <label htmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
                     </div>
                     <div className="form-group  ">
-                        <Select placeholder options={options} />
-                        <p className=''>1 = no rush </p><p className='' > 5 = urgent </p>
+                        <Select placeholder="Select" options={options} />
+                        <p className='form-underlabel' > Please select a topic.</p>
 
                     </div>
                     <hr></hr>
                     <div className="form-group ">
-                        <textarea className="form-control wow" id="exampleFormControlTextarea1 " rows="6 " placeholder="What happened?"></textarea>
+                        <textarea className="form-control wow" id="exampleFormControlTextarea1 " rows="6 " placeholder="Please outline all comments and concerns here."></textarea>
                     </div>
                     <div id="sub/canBtn ">
                         <button type="submit " className="btn ">Submit</button>

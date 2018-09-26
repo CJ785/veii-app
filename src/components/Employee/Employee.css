@@ -1,8 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css?family=Anton');
 .container {
   
     
-    background-image: url("./download.jpg");
+    background-image: #f0f0f0;
     width: -25%;
     height: 100%;
     padding-bottom: 3000px;
@@ -152,6 +152,10 @@
     width: 100%;
 }
 
+.form-underlabel{
+    font-size: 12px; 
+    font-family:  'Anton', sans-serif; 
+}
 
 .hey{
     margin: 20px;
@@ -161,11 +165,12 @@ h1,h2,h3,h4,p,.black{
     margin: 20px 0 10px 0; 
     /* outline: 5px dotted black; */
     color: white;
-    text-shadow:
+    /* text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
-    1px 1px 0 #000;  
+    1px 1px 0 #000;  */
+    font-family:  'Anton', sans-serif; 
 
 }
 
