@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import EmployeesList from "./EmployeesList"
+import EmployeeBreakTable from './EmployeeBreakTable'
 
-class EmployeeEdit extends Component {
+class EmployeeReport extends Component {
 
     constructor(props) {
         super(props);
@@ -11,7 +12,7 @@ class EmployeeEdit extends Component {
             rolename: "",
             firstname: "",
             lastname: "",
-            startbreak: [],
+            startbreak: "",
             endbreak: ""
         };
         this.handleUsername = this.handleUsername.bind(this);
@@ -20,21 +21,22 @@ class EmployeeEdit extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log("Employee Edit ID: ", this.state.username)
+        //If the user clicks a different name from the dropdown, call the getUser function
         if (this.state.username !== prevState.username) {
             this.getUser()
         }
     }
 
     handleUsername(username) {
+        //Get the updated user ID from the EmployeeList file
         this.setState({
             username: username
         })
-        console.log("ID retrieved from EmployeeList: ", username)
     }
 
 
     getUser() {
+        //Call to the database to get the user by id(username) and then update the current user's state to the response
         axios.get('/id/' + this.state.username).then(response => {
             if (response.data) {
 
@@ -43,10 +45,9 @@ class EmployeeEdit extends Component {
                     firstname: response.data.firstname,
                     lastname: response.data.lastname,
                     rolename: response.data.rolename,
-                    startbreak: [response.data.startbreak],
+                    startbreak: response.data.startbreak,
                     endbreak: response.data.endbreak
                 })
-                console.log(response.data.startbreak[0].breakstart)
             } else {
                 null
             }
@@ -55,12 +56,19 @@ class EmployeeEdit extends Component {
 
 
     render() {
-        let employeebreaks = this.state.startbreak
-        console.log(employeebreaks)
+
+
+
         return (
             <div>
                 <EmployeesList getID={this.handleUsername} />
                 <div className="EmployeeBreaks">
+                    {/* Ternary that will only display the employee's breaks history once an employee has been chosen */}
+                    {this.state.startbreak.length > 0 ? (
+                        <EmployeeBreakTable state={this.state} />
+                    ) : (
+                            null
+                        )}
 
                 </div>
             </div>
@@ -68,4 +76,4 @@ class EmployeeEdit extends Component {
         );
     }
 }
-export default EmployeeEdit;
+export default EmployeeReport;

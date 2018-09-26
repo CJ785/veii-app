@@ -12,7 +12,6 @@ class EmployeeDropdown extends Component {
 
     getNewID(event) {
         var newID = event.target.value
-        console.log("You clicked on Dropdown ID: ", newID)
         this.props.getInput(newID)
         this.setState({
             selectedID: newID

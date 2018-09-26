@@ -1,8 +1,5 @@
 import React from "react";
-import App from "../App";
-import Break from "./Break";
-
-
+;
 
 
 export class Clock extends React.Component {

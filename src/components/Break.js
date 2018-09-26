@@ -35,7 +35,6 @@ class Break extends Component {
     getUser() {
         axios.get('/id/').then(response => {
             if (response.data) {
-                console.log('Get User: There is a user saved in the server session: ')
 
                 this.setState({
                     username: response.data.username,
@@ -44,15 +43,11 @@ class Break extends Component {
                     onbreak: response.data.onbreak,
 
                 })
-
-            } else {
-                null
             }
         })
     }
 
     updateBreak() {
-        console.log("update called!")
         axios.post("/update", {
             username: this.state.username,
             onbreak: this.state.onbreak
