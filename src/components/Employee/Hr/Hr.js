@@ -19,8 +19,8 @@ function HR(props) {
                 </div>
             </div>
             <div className=" col-md-12 " id="row3 ">
-                <div classname="col-md-4"></div>
-                <div classname="col-md-4">     <form id="box">
+                <div className="col-md-4"></div>
+                <div className="col-md-4">     <form id="box">
                     <div className="form-group ">
                         <label htmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
                     </div>
@@ -37,7 +37,7 @@ function HR(props) {
                         <button type="submit " className="btn ">Submit</button>
                     </div>
                 </form></div>
-                <div classname="col-md-4"></div>
+                <div className="col-md-4"></div>
 
             </div>
             <br></br>
