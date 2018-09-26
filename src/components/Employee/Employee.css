@@ -1,31 +1,172 @@
-body {
-    font-family: trade-gothic, Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(65, 143, 222)
-}
 
 .container {
-    margin: auto;
-    width: 1140px;
-    margin-top: 30px;
-    background-color: rgb(65, 143, 222);
+  
+    
+    background-image: url("./download.jpg");
+    width: -25%;
+    height: 100%;
+    padding-bottom: 3000px;
+    /* margin-bottom: 4000px; */
+    /* height: 25%; */
+}
+.yo {
+   
+    background-color: rgb(65, 143, 222); 
+    
+    /* background-color: 
+    greenyellow; */
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    /* margin-bottom: 300px; */
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    /* height: 25%; */
 }
 
-/* Main page CSS */
-.deptBtn {
-    border-radius: 50px;
-    background-color: rgb(252, 163, 17);
-    width: 300px;
-    height: 300px;
+
+
+.break, .hr, .maint, .supervisor, .payroll, .preq{
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    
+}
+
+.break{
+ 
+    background-color:  rgb(252, 163, 17);
+    width: 161px;
+    height: 350px;/* height: //450px; */
     padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-left: 40px;
-    border: solid 5px white;
+    margin: 20px 40px 10px 50px; 
     float: left;
     color: white;
     font-weight: bolder;
     font-size: 85px;;
     padding-top: 75px;
+
+
+}
+
+.hr{
+  
+    background-color:  rgb(65, 143, 222);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;  
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;
+    padding-top: 75px;
+
+    
+    
+
+}
+
+.title>p{
+    margin-left: -150px;
+    margin-bottom: -25px;
+}
+.title{
+    width: 25%;
+    height: 25%;
+    text-align: center;
+    /* align-content: justify;   */
+    margin: 2% 40% 2% 40%;
+}
+#subtitle{
+ 
+    text-align: left;
+    /* align-content: justify;   */
+   
+
+}
+
+.maint{
+    
+    background-color: rgb(252, 163, 17);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding-top: 75px;
+
+}
+
+.supervisor{
+  
+    background-color:  rgb(65, 143, 222);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding-top: 75px;
+
+}
+.payroll{
+  
+    background-color: rgb(252, 163, 17);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;
+    padding-top: 75px;
+
+}
+.preq{
+
+    background-color:  rgb(65, 143, 222);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding-top: 75px;
+
+}
+.btn, .wow{
+    margin-top: 45px;
+    width: 100%;
+}
+
+
+.hey{
+    margin: 20px;
+}
+h1,h2,h3,h4,p,.black{
+    color: white;
+    margin: 20px 0 10px 0; 
+    /* outline: 5px dotted black; */
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+
 }
 
 h1 {
@@ -35,3 +176,4 @@ h1 {
 #row1 {
     margin: auto;
 }
+

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: justify;
   background-color: rgb(65, 143, 222)
 }
 
@@ -10,9 +10,14 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
+}
+.hel{
+  background-image: url("./download.jpg");
+  border-color: greenyellow;
+
 }
 
 .App-title {

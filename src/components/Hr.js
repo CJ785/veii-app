@@ -1,44 +1,46 @@
 import React from 'react';
-
+import Select from 'react-select'
 function HR(props) {
+    const options = [
+        { value: '1', label: '1' },
+        { value: '2', label: '2' },
+        { value: '3', label: '3' },
+        { value: '4', label: '4' }
+    ];
+
     return (
-        <div className="container">
-            <div className="row" id='hr-page'>
-                <div >
-                    <h1>EMAIL HR</h1>
+
+
+        <div className=" yo" >
+            <div className="row" >
+                <div className='title ' id="hey">
+                    <h2 className="black"> HR</h2>
+                    <p >Hello, {props.name}</p>
                 </div>
             </div>
             <div className=" col-md-12 " id="row3 ">
-                <form>
+                <div classname="col-md-4"></div>
+                <div classname="col-md-4">     <form id="box">
                     <div className="form-group ">
-                        <label htmlFor="exampleFormControlInput1 ">Name: {props.name}</label>
+                        <label htmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
                     </div>
-                    <div className="form-group ">
-                        <label htmlFor="exampleFormControlInput1 ">Department</label>
-                        <input type="text " className="form-control " id="exampleFormControlInput1 " placeholder="i.e. Coffee, Grainger, Body, Trays "></input>
+                    <div className="form-group  ">
+                        <Select placeholder options={options} />
+                        <p className=''>1 = no rush </p><p className='' > 5 = urgent </p>
+
                     </div>
+                    <hr></hr>
                     <div className="form-group ">
-                        <label htmlFor="exampleFormControlSelect2 ">How important is this matter?
-                            <span >(1 = no rush and 5 = extremely urgent)</span>
-                        </label>
-                        <select multiple className="form-control " id="exampleFormControlSelect2 ">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div className="form-group ">
-                        <label htmlFor="exampleFormControlTextarea1 ">Please describe your the situation below.</label>
-                        <textarea className="form-control " id="exampleFormControlTextarea1 " rows="6 "></textarea>
+                        <textarea className="form-control wow" id="exampleFormControlTextarea1 " rows="6 " placeholder="What happened?"></textarea>
                     </div>
                     <div id="sub/canBtn ">
-                        <button type="submit " className="btn btn-success ">Submit</button>
-                        <button type="button " className="btn btn-danger ">Clear</button>
+                        <button type="submit " className="btn ">Submit</button>
                     </div>
-                </form>
+                </form></div>
+                <div classname="col-md-4"></div>
+
             </div>
+            <br></br>
         </div>
 
 
