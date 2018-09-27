@@ -1,0 +1,29 @@
+.supervisor{
+  
+    background-color:  rgb(65, 143, 222);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding-top: 75px;
+
+}
+
+#sup-page {
+    background-color:   rgb(65, 143, 222);
+    margin-left: 35%;
+    width: 400px;
+    height: 700px;
+    padding-bottom: 300px;
+    /* margin-bottom: 300px; */
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    /* height: 25%; */
+    text-align: center;
+    color: white;
+}

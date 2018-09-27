@@ -1,8 +1,8 @@
 import React from 'react';
-
+import "./Maintenance.css";
 function Maintenance(props) {
     return (
-        < div className="container" >
+        < div className="container" id="maint-page" >
             <div className="row" id='hr-page'>
                 <div>
                     <h1>MAINTENANCE REQUEST</h1>
@@ -21,7 +21,7 @@ function Maintenance(props) {
                             <textarea className="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
                         </div>
                         <div id="sub/canBtn">
-                            <button type="submit" className="btn btn-success">Submit</button>
+                            <button type="submit" className="btn">Submit</button>
                             <button type="button" className="btn btn-danger">Clear</button>
                         </div>
                     </form>

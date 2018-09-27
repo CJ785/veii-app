@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import "./Break.css";
 class Break extends Component {
     constructor() {
         super()
@@ -91,7 +91,7 @@ class Break extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="container" id="break-page">
                 <div className="row" id='hr-page'>
                     <div>
                         <h1>RESTROOM BREAK</h1>
@@ -107,7 +107,7 @@ class Break extends Component {
                             </div>
                             <div className="form-group">
                                 <div>
-                                    <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak}>Initiate Restroom Break</button>
+                                    <button type="button" className="btn" onClick={this.startBreak}>Initiate Restroom Break</button>
                                     <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak}>Return From Restroom</button>
                                 </div>
                             </div>

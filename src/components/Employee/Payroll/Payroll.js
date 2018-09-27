@@ -1,9 +1,9 @@
 import React from 'react';
-
+import "./Payroll.css";
 function Payroll(props) {
     return (
         <div className="container">
-            <div className="row" id='hr-page'>
+            <div className="row" id='payroll-page'>
                 <div>
                     <h1>PAYROLL REQUEST</h1>
                 </div>
@@ -21,7 +21,7 @@ function Payroll(props) {
                             <textarea className="form-control " id="exampleFormControlTextarea1 " rows="6 "></textarea>
                         </div>
                         <div id="sub/canBtn ">
-                            <button type="submit " className="btn btn-success ">Submit</button>
+                            <button type="submit " className="btn">Submit</button>
                             <button type="button " className="btn btn-danger ">Clear</button>
                         </div>
                     </form>
