@@ -2,8 +2,13 @@ import React from 'react';
 import "./Payroll.css";
 function Payroll(props) {
     return (
+<<<<<<< HEAD
         <div className="container">
             <div className="row" id='payroll-page'>
+=======
+        <div className="payroll-container ">
+            <div className="row" id='hr-page'>
+>>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
                 <div>
                     <h1>PAYROLL REQUEST</h1>
                 </div>

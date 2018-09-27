@@ -5,16 +5,20 @@ import "./Hr.css";
 
 function HR(props) {
     const options = [
-        { value: '1', label: '1' },
-        { value: '2', label: '2' },
-        { value: '3', label: '3' },
-        { value: '4', label: '4' }
+        { value: '1', label: 'Payroll' },
+        { value: '2', label: 'Concerns' },
+        { value: '3', label: 'Employment' },
+        { value: '4', label: 'Records' }
     ];
 
     return (
 
 
+<<<<<<< HEAD
         <div className="hr-page" >
+=======
+        <div className="hr-container" >
+>>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
             <div className="row" >
                 <div className='title ' id="hey">
                     <h2 className="black"> HR</h2>
@@ -22,25 +26,25 @@ function HR(props) {
                 </div>
             </div>
             <div className=" col-md-12 " id="row3 ">
-                <div classname="col-md-4"></div>
-                <div classname="col-md-4">     <form id="box">
+                <div className="col-md-4"></div>
+                <div className="col-md-4">     <form id="box">
                     <div className="form-group ">
                         <label htmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
                     </div>
                     <div className="form-group  ">
-                        <Select placeholder options={options} />
-                        <p className=''>1 = no rush </p><p className='' > 5 = urgent </p>
+                        <Select placeholder="Select" options={options} />
+                        <p className='form-underlabel' > Please select a topic.</p>
 
                     </div>
                     <hr></hr>
                     <div className="form-group ">
-                        <textarea className="form-control wow" id="exampleFormControlTextarea1 " rows="6 " placeholder="What happened?"></textarea>
+                        <textarea className="form-control wow" id="exampleFormControlTextarea1 " rows="6 " placeholder="Please outline all comments and concerns here."></textarea>
                     </div>
                     <div id="sub/canBtn ">
                         <button type="submit " className="btn ">Submit</button>
                     </div>
                 </form></div>
-                <div classname="col-md-4"></div>
+                <div className="col-md-4"></div>
 
             </div>
             <br></br>

@@ -18,10 +18,8 @@ class Signup extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
-		console.log(this.state)
 	}
 	handleSubmit(event) {
-		console.log('sign-up handleSubmit, username: ' + this.state.username + "role: " + this.state.rolename)
 		event.preventDefault()
 
 		//request to server to add a new username/password
@@ -34,12 +32,16 @@ class Signup extends Component {
 		})
 			.then(response => {
 				console.log(response)
-				if (!response.data.errmsg) {
+				if (!response.data.error) {
+					alert("New user successfully created")
 					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
+					this.setState({
+						username: "",
+						firstname: "",
+						lastname: ""
 					})
 				} else {
+					alert("I'm sorry, there's already a user with that username")
 					console.log('username already taken')
 				}
 			}).catch(error => {

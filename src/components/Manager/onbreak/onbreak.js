@@ -15,7 +15,7 @@ class OnBreak extends Component {
     componentDidMount() {
         let initialList = [];
         axios.get('/onBreak/').then(response => {
-            //console.log("Data: " + response.data[0].firstname)
+            console.log("Data: " + response.data[0].startbreak[0].breakstart)
             initialList = response.data.map((employee) => {
                 return employee
             });

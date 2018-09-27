@@ -15,9 +15,13 @@
   color: white;
 }
 .hel{
-  background-image: url("./download.jpg");
+  background-color: #f0f0f0;
   border-color: greenyellow;
 
+}
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
 }
 
 .App-title {
@@ -26,6 +30,11 @@
 
 .App-intro {
   font-size: large;
+}
+.user{
+  float: left;
+  margin-right: -2000px;
+  padding-left:650px;
 }
 
 .navbar {

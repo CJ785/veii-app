@@ -1,3 +1,95 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css?family=Anton');
+.container {
+  
+    
+    background-image: #f0f0f0;
+    width: -25%;
+    height: 100%;
+    padding-bottom: 3000px;
+    /* margin-bottom: 4000px; */
+    /* height: 25%; */
+}
+.hr-container {
+   
+    /* background-color: rgb(65, 143, 222);  */
+     background-color: pink;
+    
+    /* background-color: 
+    greenyellow; */
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    /* margin-bottom: 300px; */
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    /* height: 25%; */
+}
+.payroll-container {
+   
+    /* background-color: rgb(65, 143, 222);  */
+     background-color: rgb(252, 163, 17);
+    
+    /* background-color: 
+    greenyellow; */
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    /* margin-bottom: 300px; */
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    /* height: 25%; */
+}
+
+
+
+.break, .hr, .maint, .supervisor, .payroll, .preq{
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    
+}
+
+.break{
+ 
+    background-color:  rgb(252, 163, 17);
+    width: 161px;
+    height: 350px;/* height: //450px; */
+    padding: 10px;
+    margin: 20px 40px 10px 50px; 
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding-top: 75px;
+
+
+}
+
+.hr{
+  
+    background-color:  rgb(65, 143, 222);
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;  
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;
+    padding-top: 75px;
+
+    
+    
+
+}
+
+>>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
 .title>p{
     margin-left: -150px;
     margin-bottom: -25px;
@@ -20,6 +112,14 @@
     width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+.form-underlabel{
+    font-size: 12px; 
+    font-family:  'Anton', sans-serif; 
+}
+
+>>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
 .hey{
     margin: 20px;
 }
@@ -28,11 +128,12 @@ h1,h2,h3,h4,p,.black{
     margin: 20px 0 10px 0; 
     /* outline: 5px dotted black; */
     color: white;
-    text-shadow:
+    /* text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
-    1px 1px 0 #000;  
+    1px 1px 0 #000;  */
+    font-family:  'Anton', sans-serif; 
 
 }
 

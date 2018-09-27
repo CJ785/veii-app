@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../database/models/user')
+const User = require('../database/models/User')
 const passport = require('../passport')
 
 router.post('/user/', (req, res) => {
@@ -34,7 +34,7 @@ router.post('/user/', (req, res) => {
 router.get('/employees/', (req, res) => {
 
     User.find({
-        rolename: "Employee"
+        rolename: "Employee", activeemployee: true
     }).sort({ "lastname": 1 }).then(function (employees) {
         res.json(employees); console.log("Employees " + employees)
     })
@@ -62,7 +62,8 @@ router.post(
             rolename: req.user.rolename,
             firstname: req.user.firstname,
             lastname: req.user.lastname,
-            onbreak: req.user.onbreak
+            onbreak: req.user.onbreak,
+            activeemployee: req.user.activeemployee
         };
         res.send(userInfo);
     }
@@ -81,6 +82,7 @@ router.get('/user/', (req, res, next) => {
 })
 
 router.get('/id', (req, res, next) => {
+    console.log(req.user.username)
     User.findOne({
         username: req.user.username
     }).then(function (user) {
@@ -88,11 +90,68 @@ router.get('/id', (req, res, next) => {
     })
 })
 
+router.get('/id/:currentUser', (req, res, next) => {
+    console.log(req.params.currentUser)
+    User.findOne({
+        username: req.params.currentUser
+    }).then(function (user) {
+        res.json(user);
+    })
+})
+
+
 router.post("/update", (req, res, next) => {
     console.log("user " + req.body.username + " break status " + req.body.onbreak)
     User.findOneAndUpdate({ username: req.body.username }, {
         $set: {
             onbreak: req.body.onbreak
+        }
+    },
+        (err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
+        })
+});
+
+router.post("/startbreak", (req, res, next) => {
+    console.log(req.body.startbreak)
+    User.findOneAndUpdate({ username: req.body.username }, {
+        $push: {
+            startbreak: {
+                "breakstart": req.body.startbreak
+            }
+        }
+    },
+        (err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
+        })
+});
+
+router.post("/endbreak", (req, res, next) => {
+    console.log(req.body.endbreak)
+    User.findOneAndUpdate({ username: req.body.username }, {
+        $push: {
+            endbreak: {
+                "breakend": req.body.endbreak
+            }
+        }
+    },
+        (err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
+        })
+});
+
+
+router.post("/updateUser", (req, res, next) => {
+    User.findOneAndUpdate({ username: req.body.username }, {
+        $set: {
+            username: req.body.username,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            rolename: req.body.rolename,
+            activeemployee: req.body.activeemployee
         }
     },
         (err, result) => {
