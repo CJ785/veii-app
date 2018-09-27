@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Clock from './Clock'
-import App from '../App'
 
-//const time =({Clock});
-
-export class Break extends Component {
+class Break extends Component {
     constructor() {
         super()
         this.state = {
             username: "",
             firstname: "",
             lastname: "",
-            onbreak: false,
+            onbreak: "",
             startbreak: new Date().toLocaleString(),
             endbreak: new Date().toLocaleString()
         }
@@ -21,7 +18,7 @@ export class Break extends Component {
         this.startBreak = this.startBreak.bind(this)
         this.endBreak = this.endBreak.bind(this)
         this.updateBreak = this.updateBreak.bind(this)
-        
+
     }
 
     componentDidMount() {
@@ -32,29 +29,25 @@ export class Break extends Component {
         if (this.state.onbreak !== prevState.onbreak) {
             this.updateBreak()
         }
+
     }
 
     getUser() {
         axios.get('/id/').then(response => {
             if (response.data) {
-                console.log('Get User: There is a user saved in the server session: ')
 
                 this.setState({
                     username: response.data.username,
                     firstname: response.data.firstname,
                     lastname: response.data.lastname,
                     onbreak: response.data.onbreak,
-                    time: response.data.time
-                })
 
-            } else {
-                null
+                })
             }
         })
     }
 
     updateBreak() {
-        console.log("update called!")
         axios.post("/update", {
             username: this.state.username,
             onbreak: this.state.onbreak
@@ -64,22 +57,28 @@ export class Break extends Component {
 
     }
 
+
+
     startBreak(event, startbreak) {
-        var takingBreak = this.state.onbreak
+        if (this.state.onbreak === false) {
+            axios.post("startbreak", {
+                username: this.state.username,
+                startbreak: this.state.startbreak
+            }).then(response => {
+
+            })
+        }
         const startTime = new Date().toLocaleString()
-        console.log(startTime);
+        var takingBreak = this.state.onbreak
 
         if (takingBreak === false) {
             this.setState({
                 onbreak: true,
-                time: new Date().toLocaleString()
-            });
+                startbreak: new Date().toLocaleString()
+            })
 
 
-
-
-            alert("Break started, " + `${startTime}`);
-
+            alert(`Break started at ${startTime}`)
         }
         else {
             alert("You are already on break!")
@@ -89,25 +88,28 @@ export class Break extends Component {
     }
 
     endBreak(event, endbreak) {
+        if (this.state.onbreak === true) {
+            axios.post("endbreak", {
+                username: this.state.username,
+                endbreak: this.state.endbreak
+            }).then(response => {
+
+            })
+        }
+        const endTime = new Date().toLocaleString();
         const endingBreak = this.state.onbreak
-        const endTime = new Date().toLocaleString()
-        console.log(endTime);
         if (endingBreak === true) {
             this.setState({
                 onbreak: false,
-                time: new Date().toLocaleString()
-
-
+                endbreak: new Date().toLocaleString()
             })
-
-            alert("Break ended, " + `${endTime}`);
+            alert(`Break ended at ${endTime}`)
         }
         else {
             alert("You aren't on break")
         }
 
     }
-
 
     render() {
 
@@ -128,9 +130,13 @@ export class Break extends Component {
                             </div>
                             <div className="form-group">
                                 <div>
-                                    <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak} onChange={this.updateClock} >Initiate Restroom Break</button>
-                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak} onChange={this.updateClock}>Return From Restroom</button>
+                                    {this.state.onbreak ? (
+                                        <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak} onChange={this.updateClock}>Return From Break</button>
+                                    ) : (
+                                            <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak} onChange={this.updateClock}>Initiate Break</button>
+                                        )}
                                 </div>
+
                             </div>
                         </form>
                     </div>

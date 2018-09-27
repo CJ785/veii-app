@@ -10,6 +10,7 @@ import Employee from './components/Employee'
 import EmployeesList from './components/EmployeesList'
 import Clock from './components/Clock'
 
+
 class App extends Component {
   constructor() {
     super()
@@ -77,7 +78,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App hel">
 
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} name={`${this.state.firstname} ${this.state.lastname}`} />
         {/* greet user if logged in: */}

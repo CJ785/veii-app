@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: justify;
   background-color: rgb(65, 143, 222)
 }
 
@@ -10,9 +10,18 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
+}
+.hel{
+  background-color: #f0f0f0;
+  border-color: greenyellow;
+
+}
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
 }
 
 .App-title {
@@ -21,6 +30,11 @@
 
 .App-intro {
   font-size: large;
+}
+.user{
+  float: left;
+  margin-right: -2000px;
+  padding-left:650px;
 }
 
 .navbar {

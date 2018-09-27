@@ -2,7 +2,7 @@ import React from 'react';
 
 function Payroll(props) {
     return (
-        <div className="container">
+        <div className="payroll-container ">
             <div className="row" id='hr-page'>
                 <div>
                     <h1>PAYROLL REQUEST</h1>
