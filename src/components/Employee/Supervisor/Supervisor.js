@@ -1,11 +1,20 @@
 import React from 'react';
 import "./Supervisor.css";
+import Select from 'react-select'
 function Supervisor(props) {
+
+    const departments = [
+        { value: '1', label: 'Payroll' },
+        { value: '2', label: 'Concerns' },
+        { value: '3', label: 'Employment' },
+        { value: '4', label: 'Records' }
+    ];
     return (
-        <div className="container" id='sup-page' >
+        <div className="sup-page"  >
             <div className="row" >
                 <div>
-                    <h1>MAINTENANCE REQUEST</h1>
+                    <h3 className="super-spacer">Supervisor Request</h3>
+                    <p className="name-spacer-super" >Hello, {props.name}</p>
                 </div>
             </div>
 
@@ -14,22 +23,22 @@ function Supervisor(props) {
 
                     <div className="form-group">
                     </div>
-                    <label htmlFor="exampleFormControlInput1">Name: {props.name}</label>
                     <div className="form-group"></div>
-                    <label htmlFor="exampleFormControlInput1">Department</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="i.e. Coffee, Grainger, Body, Trays"></input>
+                    <Select placeholder="Department" options={departments} />
+                    <hr></hr>
+
+                    <br></br>
 
                     <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">Please describe the problem.</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <textarea className="form-control " id="exampleFormControlTextarea1 " rows="6 " placeholder="Please outline all comments and concerns here."></textarea>
                     </div>
                     <div id="sub/canBtn">
                         <button type="submit" className="btn">Submit</button>
-                        <button type="button" className="btn btn-danger">Clear</button>
                     </div>
                 </form>
             </div>
         </div>
+       
     )
 }
 

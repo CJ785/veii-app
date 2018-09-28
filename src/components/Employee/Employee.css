@@ -1,13 +1,19 @@
+.block-spacer{
+    margin-bottom: 100px;
+     /* padding-bottom: 1000px; */
+ }
 .title>p{
     margin-left: -150px;
     margin-bottom: -25px;
+    
 }
 .title{
-    width: 25%;
+    width: 281%;
     height: 25%;
     text-align: center;
-    /* align-content: justify;   */
-    margin: 2% 40% 2% 40%;
+    align-content: justify;  
+    /* margin: 0 40% 15% 40%; */
+    /* padding-bottom: 1000px; */
 }
 #subtitle{
  
@@ -28,11 +34,6 @@ h1,h2,h3,h4,p,.black{
     margin: 20px 0 10px 0; 
     /* outline: 5px dotted black; */
     color: white;
-    /* text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;  */
     font-family:  'Anton', sans-serif; 
 
 }
