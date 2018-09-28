@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-<<<<<<< HEAD
 import "./Break.css";
-=======
 import Clock from './Clock'
-
->>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
 class Break extends Component {
     constructor() {
         super()
@@ -134,16 +130,13 @@ class Break extends Component {
                             </div>
                             <div className="form-group">
                                 <div>
-<<<<<<< HEAD
                                     <button type="button" className="btn" onClick={this.startBreak}>Initiate Restroom Break</button>
                                     <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak}>Return From Restroom</button>
-=======
                                     {this.state.onbreak ? (
                                         <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak} onChange={this.updateClock}>Return From Break</button>
                                     ) : (
                                             <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak} onChange={this.updateClock}>Initiate Break</button>
                                         )}
->>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
                                 </div>
 
                             </div>

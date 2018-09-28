@@ -14,20 +14,16 @@ function HR(props) {
     return (
 
 
-<<<<<<< HEAD
         <div className="hr-page" >
-=======
-        <div className="hr-container" >
->>>>>>> d3a468bd3b8031874ad8a08743ecfd69d9736478
             <div className="row" >
                 <div className='title ' id="hey">
                     <h2 className="black"> HR</h2>
                     <p >Hello, {props.name}</p>
                 </div>
             </div>
+            
             <div className=" col-md-12 " id="row3 ">
-                <div className="col-md-4"></div>
-                <div className="col-md-4">     <form id="box">
+                 <form id="box">
                     <div className="form-group ">
                         <label htmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
                     </div>
@@ -43,8 +39,8 @@ function HR(props) {
                     <div id="sub/canBtn ">
                         <button type="submit " className="btn ">Submit</button>
                     </div>
-                </form></div>
-                <div className="col-md-4"></div>
+                </form>
+                
 
             </div>
             <br></br>

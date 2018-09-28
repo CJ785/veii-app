@@ -1,3 +1,6 @@
+// Shows every break thjat an aemployee has taken, 
+// this is the dom part 
+//actual table that is being rendered
 import React, { Component } from 'react';
 
 class EmployeeBreakTable extends Component {
