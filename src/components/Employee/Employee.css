@@ -1,178 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Anton');
-.container {
-  
-    
-    background-image: #f0f0f0;
-    width: -25%;
-    height: 100%;
-    padding-bottom: 3000px;
-    /* margin-bottom: 4000px; */
-    /* height: 25%; */
-}
-.hr-container {
-   
-    /* background-color: rgb(65, 143, 222);  */
-     background-color: pink;
-    
-    /* background-color: 
-    greenyellow; */
-    margin-left: 35%;
-    width: 300px;
-    height: 500px;
-    padding-bottom: 300px;
-    /* margin-bottom: 300px; */
-    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    /* height: 25%; */
-}
-.payroll-container {
-   
-    /* background-color: rgb(65, 143, 222);  */
-     background-color: rgb(252, 163, 17);
-    
-    /* background-color: 
-    greenyellow; */
-    margin-left: 35%;
-    width: 300px;
-    height: 500px;
-    padding-bottom: 300px;
-    /* margin-bottom: 300px; */
-    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    /* height: 25%; */
-}
-
-
-
-.break, .hr, .maint, .supervisor, .payroll, .preq{
-    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    
-}
-
-.break{
- 
-    background-color:  rgb(252, 163, 17);
-    width: 161px;
-    height: 350px;/* height: //450px; */
-    padding: 10px;
-    margin: 20px 40px 10px 50px; 
-    float: left;
-    color: white;
-    font-weight: bolder;
-    font-size: 85px;;
-    padding-top: 75px;
-
-
-}
-
-.hr{
-  
-    background-color:  rgb(65, 143, 222);
-    width: 161px;
-    height: 133px;
-    padding: 10px;
-    margin: 20px 40px 10px 50px;  
-    float: left;
-    color: white;
-    font-weight: bolder;
-    font-size: 85px;
-    padding-top: 75px;
-
-    
-    
-
-}
-
+.block-spacer{
+    margin-bottom: 100px;
+     /* padding-bottom: 1000px; */
+ }
 .title>p{
     margin-left: -150px;
     margin-bottom: -25px;
+    
 }
 .title{
-    width: 25%;
+    width: 281%;
     height: 25%;
     text-align: center;
-    /* align-content: justify;   */
-    margin: 2% 40% 2% 40%;
+    align-content: justify;  
+    /* margin: 0 40% 15% 40%; */
+    /* padding-bottom: 1000px; */
 }
 #subtitle{
  
     text-align: left;
     /* align-content: justify;   */
-   
-
 }
 
-.maint{
-    
-    background-color: rgb(252, 163, 17);
-    width: 161px;
-    height: 133px;
-    padding: 10px;
-    margin: 20px 40px 10px 50px;
-    float: left;
-    color: white;
-    font-weight: bolder;
-    font-size: 85px;;
-    padding-top: 75px;
-
-}
-
-.supervisor{
-  
-    background-color:  rgb(65, 143, 222);
-    width: 161px;
-    height: 133px;
-    padding: 10px;
-    margin: 20px 40px 10px 50px;
-    float: left;
-    color: white;
-    font-weight: bolder;
-    font-size: 85px;;
-    padding-top: 75px;
-
-}
-.payroll{
-  
-    background-color: rgb(252, 163, 17);
-    width: 161px;
-    height: 133px;
-    padding: 10px;
-    margin: 20px 40px 10px 50px;
-    float: left;
-    color: white;
-    font-weight: bolder;
-    font-size: 85px;
-    padding-top: 75px;
-
-}
-.preq{
-
-    background-color:  rgb(65, 143, 222);
-    width: 161px;
-    height: 133px;
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-left: 40px;
-    float: left;
-    color: white;
-    font-weight: bolder;
-    font-size: 85px;;
-    padding-top: 75px;
-
-}
 .btn, .wow{
     margin-top: 45px;
-    width: 100%;
-}
-
-.form-underlabel{
-    font-size: 12px; 
-    font-family:  'Anton', sans-serif; 
+    width:100%;
 }
 
 .hey{
@@ -183,11 +34,6 @@ h1,h2,h3,h4,p,.black{
     margin: 20px 0 10px 0; 
     /* outline: 5px dotted black; */
     color: white;
-    /* text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;  */
     font-family:  'Anton', sans-serif; 
 
 }
@@ -199,4 +45,93 @@ h1 {
 #row1 {
     margin: auto;
 }
+
+.add-user{
+    background-color: white;
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ############################Signup has to be modulized################################################################################################## */
+/* Copy and past this into a sighup.css file and change the path in sign up form from this file to the created file  */
+.signup-button{
+    margin-top: 45px;
+    width:33%;
+    background-color: white;
+
+}
+.signup-title{
+    text-align: center;
+    color: rgb(65, 143, 222);;
+    padding-top: 20px;
+}
+
+.signup-form{
+    padding-left: 200%;
+    margin-left:  25%;
+    margin-right: -100%;
+
+}
+
+/* ########################################################################################################################################## */
+
+
+/*################################################ Edit user needs to me modulized######################################################################################### */
+/* Copy and past this into a sighup.css file and change the path in sign up form from this file to the created file  */
+.edit-user{
+    background-color: white;
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    
+
+}
+
+.edit-form{
+    padding-left: -100%;
+    padding-top: 10px;
+    padding-right: 30px;
+    /* margin-left:  25%; */
+    /* margin-right: -100%; */
+    
+
+}
+.somethong{
+    padding-right: 100px; 
+}
+
+.edit-title{
+    padding-top: 30px;
+    padding-right: 100px;
+    
+}
+
+.signup-form-button{
+    width: 75%;
+    color: pink;
+    padding-right: 100px;
+
+    background-color: pink;
+}
+.btton-padding{
+    padding-left: -100%;
+    padding-top: 10px;
+    padding-right: 30px;
+margin-left: 40px;
+}
+
+.employees-edit{
+    margin-top: 20px;
+}
+/* ######################################################################################################################33 */
+
 

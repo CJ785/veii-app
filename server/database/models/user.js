@@ -6,11 +6,11 @@ mongoose.promise = Promise
 // Define userSchema
 const userSchema = new Schema({
 
-    username: { type: String, unique: true, required: true },
+    username: { type: String, unique: true, min: 4, max: 4, required: true },
     password: { type: String, unique: false, required: false },
-    rolename: { type: String, required: false, unique: false },
-    firstname: { type: String, required: false, unique: false },
-    lastname: { type: String, required: false, unique: false },
+    rolename: { type: String, required: false, unique: false, enum: ["Employee", "Manager"], },
+    firstname: { type: String, required: true, minlength: 1, unique: false },
+    lastname: { type: String, required: true, minlength: 1, unique: false },
     onbreak: { type: Boolean, required: true, default: false },
     activeemployee: { type: Boolean, required: true, default: true },
     startbreak: [

@@ -3,7 +3,7 @@ import Signup from '../sign-up'
 import "./Manager.css"
 import EmployeeEdit from '../EmployeeEdit'
 import EmployeeReport from '../EmployeeReport'
-import OnBreak from "./OnBreak"
+import OnBreak from "./OnBreak/onbreak"
 
 class Manager extends Component {
     constructor(props) {
@@ -21,31 +21,29 @@ class Manager extends Component {
     conditionalRender = () => {
         if (this.state.buttonPressed === 0) {
             return (
-                <div className="container">
+                <div className="">
                     <div className="row">
-                        <div className="col-md-12" id="row1">
-
+                        <div className="col-md-6 manager" id="">
                             <div className="deptBtn" onClick={() => this.handleClick(1)}>
-                                <h1>ADD EMPLOYEE</h1>
+                                <h2>Add Employee</h2>
                             </div>
+                        </div>
 
-
+                        <div className="col-md-6 manager" id="">
                             <div className="deptBtn" onClick={() => this.handleClick(2)}>
-                                <h1>EDIT EMPLOYEE</h1>
+                                <h2>Edit Employee</h2>
                             </div>
-
-
-                            <div className="deptBtn" onClick={() => this.handleClick(3)}>
-                                <h1>CURRENTLY ON BREAK</h1>
-                            </div>
-
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-12" id="row2">
-
+                        <div className="col-md-6 manager" id="">
+                            <div className="deptBtn" onClick={() => this.handleClick(3)}>
+                                <h2>On Break</h2>
+                            </div>
+                        </div>
+                        <div className="col-md-6 manager" id="">
                             <div className="deptBtn" onClick={() => this.handleClick(4)}>
-                                <h1 >SEARCH EMPLOYEE</h1>
+                                <h2 >Search Employee</h2>
                             </div>
 
                         </div>
@@ -97,9 +95,6 @@ class Manager extends Component {
                 {this.conditionalRender()}
             </div>
 
-            //put in the rest of your buttons here
-
-            //add conditional rendering based on this.state.buttonPressed
         )
     }
 }

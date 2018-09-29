@@ -2,11 +2,13 @@ const express = require('express')
 const router = express.Router()
 const User = require('../database/models/User')
 const passport = require('../passport')
+const nodemailer = require('nodemailer')
 
 router.post('/user/', (req, res) => {
 
     const { username, password, rolename, firstname, lastname } = req.body
     // ADD VALIDATION
+    console.log(req.body)
     User.findOne({ username: username }, (err, user) => {
         if (err) {
             console.log('User.js post error: ', err)
@@ -23,9 +25,11 @@ router.post('/user/', (req, res) => {
                 firstname: firstname,
                 lastname: lastname
             })
+            console.log("Creating New User " + newUser)
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
                 res.json(savedUser)
+                console.log("User " + savedUser)
             })
         }
     })
@@ -99,6 +103,32 @@ router.get('/id/:currentUser', (req, res, next) => {
     })
 })
 
+router.post('/hremail', (req, res) => {
+    const data = req.body;
+    console.log('Data: ', data);
+    console.log("HR email made it to the backend");
+    console.log(req.body);
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: 'veiappgroupproject3@gmail.com', // sender address
+        to: 'fsf238@gmail.com', // list of receivers
+        subject: 'Message from VEI app', // Subject line
+        //text: event.target.name,
+        text: req.body// plaintext body
+        // text: req.body.importance,
+        // text: req.body.description
+    };
+    //send mail with defined transport object
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
+    res.json('You should have an email');
+});
 
 router.post("/update", (req, res, next) => {
     console.log("user " + req.body.username + " break status " + req.body.onbreak)
