@@ -15,20 +15,24 @@ class Signup extends Component {
 			firstnameError: '',
 			lastname: "",
 			lastnameError: '',
-			departments : [
-				{ value: 'Employee', label: 'Employee' },
-				{ value: 'Manager', label: 'Manager' }
-			]
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 		this.validate = this.validate.bind(this)
 		this.duplicateName = this.duplicateName.bind(this)
+		this.handleSelectChange = this.handleSelectChange.bind(this)
 	}
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
+		})
+	}
+
+	handleSelectChange(event) {
+		console.log(event.value)
+		this.setState({
+			rolename: event.value
 		})
 	}
 
@@ -65,7 +69,7 @@ class Signup extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
-
+		console.log(this.state.rolename)
 		const err = this.validate();
 
 		if (!err) {
@@ -87,7 +91,7 @@ class Signup extends Component {
 							firstnameError: "",
 							firstname: "",
 							lastnameError: "",
-							lastname: ""
+							lastname: "",
 						})
 					} else {
 						this.duplicateName();
@@ -106,12 +110,16 @@ class Signup extends Component {
 		const styles = {
 			color: "red"
 		}
+		const options = [
+			{ name: "rolename", value: 'Employee', label: 'Employee' },
+			{ name: "rolename", value: 'Manager', label: 'Manager' }
+		]
 		return (
 			<div className="SignupForm add-user">
 				<h3 className="signup-title">Add Employee</h3>
 				<form className="form-horizontal signup-form">
 					<div className="form-group">
-						
+
 						<div className="col-4 col-mr-auto">
 							<input className="form-input"
 								type="text"
@@ -155,9 +163,8 @@ class Signup extends Component {
 					<br></br>
 					<div className="form-group">
 						<div className="col-4 col-mr-auto">
-						<Select placeholder=" Role" value={this.state.rolename} onChange={this.handleChange} options={this.state.departments} />
+							<Select placeholder=" Role" value={this.state.rolename} onChange={this.handleSelectChange} options={options} />
 						</div>
-
 					</div>
 
 					<div className="form-group ">
