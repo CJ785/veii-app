@@ -1,3 +1,5 @@
+// aStatefull componenet for 
+// when you click on somebody on the drop down list 
 import React, { Component } from 'react';
 import axios from 'axios'
 import EmployeesList from "./EmployeesList"

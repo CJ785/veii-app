@@ -26,27 +26,27 @@ class Employee extends Component {
                 <div className="container">
                     <div className="  row">
                         <div className="break col-sm-3 " id="#" onClick={() => this.handleClick(5)}>
-                            <h2>Break</h2>
+                            <h3 classnName="block-spacer">Break</h3>
                         </div>
                         <div className="col-sm-9" id="">
                             <div className=" row" id="#">
                                 <div className=" hr col-sm-4" onClick={() => this.handleClick(1)} >
-                                    <h2>HR</h2>
+                                    <h3 classnName="block-spacer">Human Resources</h3>
                                 </div>
 
                                 <div id="#" className=" maint col-sm-4" onClick={() => this.handleClick(6)}>
-                                    <h2>Maint</h2>
+                                    <h3 classnName="block-spacer">Maintenance</h3>
                                 </div>
 
                                 <div className=" supervisor col-sm-4" id="" onClick={() => this.handleClick(2)}>
-                                    <h2>Super</h2>
+                                    <h3 classnName="">Supervisor</h3>
                                 </div>
                                 <div className="  payroll col-sm-6" id="" onClick={() => this.handleClick(4)}>
-                                    <h2>Payroll</h2>
+                                    <h3 classnName="">Payroll</h3>
                                 </div>
 
                                 <div className="preq col-sm-6" id=" #" onClick={() => this.handleClick(3)}>
-                                    <h2>Prts </h2>
+                                    <h3 classnName="">Parts </h3>
                                 </div>
 
                             </div>

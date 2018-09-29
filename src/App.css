@@ -17,6 +17,7 @@
 .hel{
   background-color: #f0f0f0;
   border-color: greenyellow;
+  padding-bottom: 150px;
 
 }
 .navbar,
@@ -33,6 +34,8 @@
 }
 .user{
   float: left;
+  right: 0;
+  top: 0;
   margin-right: -2000px;
   padding-left:650px;
 }
@@ -48,5 +51,10 @@
 
 #nav-container {
   align-items: flex-end;
+}
+
+.user-name{
+  padding-left: 55%;
+  
 }
 
