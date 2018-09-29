@@ -7,18 +7,26 @@ class LoginForm extends Component {
         super()
         this.state = {
             username: '',
+            loginError: "",
             password: 'password',
             rolename: "",
             redirectTo: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-
+        this.notFound = this.notFound.bind(this)
     }
 
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+
+    notFound = () => {
+        const loginerror = "User not found, please try again";
+        this.setState({
+            loginError: loginerror
         })
     }
 
@@ -53,7 +61,7 @@ class LoginForm extends Component {
                     })
                 }
             }).catch(error => {
-                alert("Invalid username, please try again")
+                this.notFound();
                 console.log('login error: ')
                 console.log(error);
 
@@ -61,6 +69,9 @@ class LoginForm extends Component {
     }
 
     render() {
+        const styles = {
+            color: "red"
+        }
         if (this.state.redirectTo) {
             return <Redirect to={{ pathname: this.state.redirectTo }} />
         } else {
@@ -82,6 +93,7 @@ class LoginForm extends Component {
                                     value={this.state.username}
                                     onChange={this.handleChange}
                                 />
+                                <span style={styles}>{this.state.loginError}</span>
                             </div>
                         </div>
 

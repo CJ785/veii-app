@@ -64,7 +64,9 @@ class App extends Component {
 
   renderConditionalComponent() {
     if (this.state.rolename === "Manager") {
+
       return <Manager />
+
     } else if (this.state.rolename === "Employee") {
       return <Employee name={`${this.state.firstname} ${this.state.lastname}`} break={this.state.onbreak} />
     }
@@ -78,8 +80,7 @@ class App extends Component {
     return (
       <div className="App hel">
 
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} name={`${this.state.firstname} ${this.state.lastname}`} />
-        {/* greet user if logged in: */}
+        <Navbar updateUser={this.updateUser} rolename={this.state.rolename} loggedIn={this.state.loggedIn} name={`${this.state.firstname} ${this.state.lastname}`} />
 
         {this.state.loggedIn}
         {this.renderConditionalComponent()}
@@ -99,6 +100,9 @@ class App extends Component {
           render={() =>
             <Signup />}
         />
+        <Route path="/manager"
+          render={() =>
+            <Manager />} />
         <Route
           path="/employee"
           render={() =>

@@ -97,9 +97,6 @@ class Manager extends Component {
                 {this.conditionalRender()}
             </div>
 
-            //put in the rest of your buttons here
-
-            //add conditional rendering based on this.state.buttonPressed
         )
     }
 }
