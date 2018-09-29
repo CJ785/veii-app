@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import "./Break.css";
 import Clock from './Clock'
 
 class Break extends Component {
@@ -114,26 +115,26 @@ class Break extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="break-page">
                 <div className="row" id='hr-page'>
                     <div>
-                        <h1>RESTROOM BREAK</h1>
+                        <h3 className="break-spacer">Break</h3>
                     </div>
                     <div className="col-md-12" id="row3">
                         <form>
                             <div className="form-group">
-                                <label htmlFor="exampleFormControlInput1">Name: {this.props.name}</label>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleFormControlInput1">Department</label>
+                            <div>
                                 <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="i.e. Coffee, Grainger, Body, Trays"></input>
                             </div>
                             <div className="form-group">
                                 <div>
+                                    <button type="button" className="btn" onClick={this.startBreak}>Initiate Restroom Break</button>
+                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak}>Return From Restroom</button>
                                     {this.state.onbreak ? (
                                         <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak} onChange={this.updateClock}>Return From Break</button>
                                     ) : (
-                                            <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak} onChange={this.updateClock}>Initiate Break</button>
+                                            <button type="button" className="btn btn-primary btn-lg"  onClick={this.startBreak} onChange={this.updateClock}>Initiate Break</button>
                                         )}
                                 </div>
 

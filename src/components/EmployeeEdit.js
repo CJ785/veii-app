@@ -78,11 +78,11 @@ class EmployeeEdit extends Component {
 
     render() {
         return (
-            <div>
-                <EmployeesList getID={this.handleUsername} />
-                <div className="EditForm">
-                    <h4>Edit Employee</h4>
-                    <form className="form-horizontal">
+            <div className="edit-user">
+                <EmployeesList getID={this.handleUsername}  />
+                <div className="EditForm edit-form">
+                    <h4 className="edit-title">Edit Employee</h4>
+                    <form className="form-horizontal ">
                         <div className="form-group">
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -96,7 +96,7 @@ class EmployeeEdit extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div className="col-1 col-ml-auto somethong">
                                 <label className="form-label" htmlFor="firstname">Firstname</label>
                             </div>
                             <div className="col-3 col-mr-auto">
@@ -111,7 +111,7 @@ class EmployeeEdit extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div className="col-1 col-ml-auto somethong">
                                 <label className="form-label" htmlFor="lastname">Lastname</label>
                             </div>
                             <div className="col-3 col-mr-auto">
@@ -126,7 +126,7 @@ class EmployeeEdit extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div className="col-1 col-ml-auto somethong">
                                 <label>Employee Role:</label>
                             </div>
                             <div className="col-3 col-mr-auto">
@@ -138,7 +138,7 @@ class EmployeeEdit extends Component {
 
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div className="col-1 col-ml-auto somethong">
                                 <label>Current Employee:</label>
                             </div>
                             <div className="col-3 col-mr-auto">
@@ -150,9 +150,9 @@ class EmployeeEdit extends Component {
 
                         </div>
                         <div className="form-group ">
-                            <div className="col-7"></div>
+                            <div className="col-12"></div>
                             <button
-                                className="btn btn-primary col-1 col-mr-auto"
+                                className=" btton-padding btn  "
                                 onClick={this.updateUser}
                                 type="submit"
                             >Update Employee</button>

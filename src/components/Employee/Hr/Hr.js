@@ -1,5 +1,8 @@
 import React from 'react';
 import Select from 'react-select'
+import "./Hr.css";
+
+
 function HR(props) {
     const options = [
         { value: '1', label: 'Payroll' },
@@ -11,18 +14,17 @@ function HR(props) {
     return (
 
 
-        <div className="hr-container" >
+        <div className="hr-page" >
             <div className="row" >
-                <div className='title ' id="hey">
-                    <h2 className="black"> HR</h2>
-                    <p >Hello, {props.name}</p>
+                <div className='title '>
+                    <h2 className="ntitle"> HR</h2>
+                    <p className="nspacer" >Hello, {props.name}</p>
                 </div>
             </div>
             <div className=" col-md-12 " id="row3 ">
-                <div className="col-md-4"></div>
-                <div className="col-md-4">     <form id="box">
+                <form id="box">
                     <div className="form-group ">
-                        <label htmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
+                        <label tmlFor="exampleFormControlInput1 " placeholder={props.name}></label>
                     </div>
                     <div className="form-group  ">
                         <Select placeholder="Select" options={options} />
@@ -31,14 +33,12 @@ function HR(props) {
                     </div>
                     <hr></hr>
                     <div className="form-group ">
-                        <textarea className="form-control wow" id="exampleFormControlTextarea1 " rows="6 " placeholder="Please outline all comments and concerns here."></textarea>
+                        <textarea className="form-control " id="exampleFormControlTextarea1 " rows="6 " placeholder="Please outline all comments and concerns here."></textarea>
                     </div>
                     <div id="sub/canBtn ">
                         <button type="submit " className="btn ">Submit</button>
                     </div>
-                </form></div>
-                <div className="col-md-4"></div>
-
+                </form>
             </div>
             <br></br>
         </div>
