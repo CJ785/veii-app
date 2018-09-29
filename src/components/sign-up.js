@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Select from 'react-select'
+import "./Employee/Employee.css"
 
 class Signup extends Component {
 	constructor() {
@@ -9,7 +11,11 @@ class Signup extends Component {
 			password: 'password',
 			rolename: "Employee",
 			firstname: "",
-			lastname: ""
+			lastname: "",
+			departments : [
+				{ value: 'Employee', label: 'Employee' },
+				{ value: 'Manager', label: 'Manager' }
+			]
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
@@ -54,29 +60,25 @@ class Signup extends Component {
 
 	render() {
 		return (
-			<div className="SignupForm">
-				<h4>Add User</h4>
-				<form className="form-horizontal">
+			<div className="SignupForm add-user">
+				<h3 className="signup-title">Add Employee</h3>
+				<form className="form-horizontal signup-form">
 					<div className="form-group">
-						<div className="col-1 col-ml-auto">
-							<label className="form-label" htmlFor="username">Employee ID</label>
-						</div>
-						<div className="col-3 col-mr-auto">
+						
+						<div className="col-4 col-mr-auto">
 							<input className="form-input"
 								type="text"
 								id="username"
 								name="username"
-								placeholder="Employee ID"
+								placeholder="ID"
 								value={this.state.username}
 								onChange={this.handleChange}
 							/>
 						</div>
 					</div>
+					<br></br>
 					<div className="form-group">
-						<div className="col-1 col-ml-auto">
-							<label className="form-label" htmlFor="firstname">Firstname</label>
-						</div>
-						<div className="col-3 col-mr-auto">
+						<div className="col-4 col-mr-auto">
 							<input className="form-input"
 								type="text"
 								id="firstname"
@@ -87,11 +89,9 @@ class Signup extends Component {
 							/>
 						</div>
 					</div>
+					<br></br>
 					<div className="form-group">
-						<div className="col-1 col-ml-auto">
-							<label className="form-label" htmlFor="lastname">Lastname</label>
-						</div>
-						<div className="col-3 col-mr-auto">
+						<div className="col-4 col-mr-auto">
 							<input className="form-input"
 								type="text"
 								id="lastname"
@@ -102,23 +102,18 @@ class Signup extends Component {
 							/>
 						</div>
 					</div>
+					<br></br>
 					<div className="form-group">
-						<div className="col-1 col-ml-auto">
-							<label>Employee Role:</label>
-						</div>
-						<div className="col-3 col-mr-auto">
-							<select name="rolename" id="rolename" value={this.state.rolename} onChange={this.handleChange}>
-								<option value="Employee">Employee</option>
-								<option value="Manager">Manager</option>
-							</select>
+						<div className="col-4 col-mr-auto">
+						<Select placeholder=" Role" value={this.state.rolename} onChange={this.handleChange} options={this.state.departments} />
 						</div>
 
 					</div>
 
 					<div className="form-group ">
-						<div className="col-7"></div>
+						<div className="col-12"></div>
 						<button
-							className="btn btn-primary col-1 col-mr-auto"
+							className=" btn btn-primary signup-button "
 							onClick={this.handleSubmit}
 							type="submit"
 						>Add Employee</button>

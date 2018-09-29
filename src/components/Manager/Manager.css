@@ -1,0 +1,14 @@
+.manager{
+  
+    background-color:  rgb(65, 143, 222);
+    width: 161px;
+    height: 133px;
+    /* padding: 10px; */
+    margin: 20px 40px 10px 300px;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    font-size: 85px;;
+    padding: 75px 200px 130px 20px;
+
+}

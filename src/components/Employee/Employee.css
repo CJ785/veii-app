@@ -23,7 +23,7 @@
 
 .btn, .wow{
     margin-top: 45px;
-    width: 100%;
+    width:100%;
 }
 
 .hey{
@@ -45,4 +45,93 @@ h1 {
 #row1 {
     margin: auto;
 }
+
+.add-user{
+    background-color: white;
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ############################Signup has to be modulized################################################################################################## */
+/* Copy and past this into a sighup.css file and change the path in sign up form from this file to the created file  */
+.signup-button{
+    margin-top: 45px;
+    width:33%;
+    background-color: white;
+
+}
+.signup-title{
+    text-align: center;
+    color: rgb(65, 143, 222);;
+    padding-top: 20px;
+}
+
+.signup-form{
+    padding-left: 200%;
+    margin-left:  25%;
+    margin-right: -100%;
+
+}
+
+/* ########################################################################################################################################## */
+
+
+/*################################################ Edit user needs to me modulized######################################################################################### */
+/* Copy and past this into a sighup.css file and change the path in sign up form from this file to the created file  */
+.edit-user{
+    background-color: white;
+    margin-left: 35%;
+    width: 300px;
+    height: 500px;
+    padding-bottom: 300px;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    
+
+}
+
+.edit-form{
+    padding-left: -100%;
+    padding-top: 10px;
+    padding-right: 30px;
+    /* margin-left:  25%; */
+    /* margin-right: -100%; */
+    
+
+}
+.somethong{
+    padding-right: 100px; 
+}
+
+.edit-title{
+    padding-top: 30px;
+    padding-right: 100px;
+    
+}
+
+.signup-form-button{
+    width: 75%;
+    color: pink;
+    padding-right: 100px;
+
+    background-color: pink;
+}
+.btton-padding{
+    padding-left: -100%;
+    padding-top: 10px;
+    padding-right: 30px;
+margin-left: 40px;
+}
+
+.employees-edit{
+    margin-top: 20px;
+}
+/* ######################################################################################################################33 */
+
 

@@ -34,17 +34,17 @@ class Navbar extends Component {
             <div>
 
                 <header className="navbar navrbar-default" id="nav-container">
-                    <div className="col-4" >
+                    <div className="col-12" >
 
                         {loggedIn ? (
                             <section className="navbar-section">
-                                <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-                                    <span className="text-secondary">logout</span></Link>
-                                <span className="text-secondary"><p>{this.props.name}</p></span>
+                                <Link to="#" className=" btn-link text-secondary" onClick={this.logout}>
+                                    <span className="text-secondary "><p >logout</p></span></Link>
+                                <span className="text-secondary"><p className="user-name ">{this.props.name}</p> </span>
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    <Link to="/signup"><p className="user">Add User</p></Link>
+                                    <Link to="/signup"><p className="">Add User</p></Link>
                                 </section>
                             )}
                     </div>
