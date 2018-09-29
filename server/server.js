@@ -6,27 +6,27 @@ const dbConnection = require('./database')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 // Route requires
 const user = require('./routes/user')
 
 // MIDDLEWARE
 app.use(morgan('dev'))
 app.use(
-	bodyParser.urlencoded({
-		extended: false
-	})
+    bodyParser.urlencoded({
+        extended: false
+    })
 )
 app.use(bodyParser.json())
 
 // Sessions
 app.use(
-	session({
-		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: dbConnection }),
-		resave: false, //required
-		saveUninitialized: false //required
-	})
+    session({
+        secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
+        store: new MongoStore({ mongooseConnection: dbConnection }),
+        resave: false, //required
+        saveUninitialized: false //required
+    })
 )
 
 // Passport
@@ -40,5 +40,5 @@ app.use('/', user)
 
 // Starting Server 
 app.listen(PORT, () => {
-	console.log(`App listening on PORT: ${PORT}`)
+    console.log(`App listening on PORT: ${PORT}`)
 })

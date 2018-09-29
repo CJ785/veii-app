@@ -8,6 +8,7 @@ class Navbar extends Component {
     constructor(props) {
         super(props)
         this.logout = this.logout.bind(this)
+        this.conditionalNavbar = this.conditionalNavbar.bind(this)
     }
 
     logout(event) {
@@ -28,6 +29,25 @@ class Navbar extends Component {
 
     }
 
+    conditionalNavbar = () => {
+        if (this.props.loggedIn === true) {
+            return (
+                <section className="navbar-section">
+                    <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
+                        <span className="text-secondary">logout</span></Link>
+                    <span className="text-secondary"><p>{this.props.name}</p></span>
+                </section>
+            )
+        } else if (this.props.loggedIn === false) {
+            return (
+                <section className="navbar-section">
+                    <Link to="/signup"><p className="user">Add User</p></Link>
+                </section>
+            )
+        }
+    }
+
+
     render() {
         const loggedIn = this.props.loggedIn;
         return (
@@ -36,7 +56,9 @@ class Navbar extends Component {
                 <header className="navbar navrbar-default" id="nav-container">
                     <div className="col-12" >
 
-                        {loggedIn ? (
+                        {this.conditionalNavbar()}
+
+                        {/* {loggedIn ? (
                             <section className="navbar-section">
                                 <Link to="#" className=" btn-link text-secondary" onClick={this.logout}>
                                     <span className="text-secondary "><p >logout</p></span></Link>
@@ -46,7 +68,7 @@ class Navbar extends Component {
                                 <section className="navbar-section">
                                     <Link to="/signup"><p className="">Add User</p></Link>
                                 </section>
-                            )}
+                            )} */}
                     </div>
                 </header>
             </div>

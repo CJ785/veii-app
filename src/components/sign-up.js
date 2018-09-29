@@ -8,57 +8,104 @@ class Signup extends Component {
 		super()
 		this.state = {
 			username: '',
+			usernameError: '',
 			password: 'password',
 			rolename: "Employee",
 			firstname: "",
+			firstnameError: '',
 			lastname: "",
+			lastnameError: '',
 			departments : [
 				{ value: 'Employee', label: 'Employee' },
 				{ value: 'Manager', label: 'Manager' }
 			]
+
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
+		this.validate = this.validate.bind(this)
+		this.duplicateName = this.duplicateName.bind(this)
 	}
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
 	}
+
+	duplicateName = () => {
+		const usernameError = "There is already a user with that ID in the system, please choose a different ID";
+		this.setState({
+			usernameError: usernameError
+		})
+	}
+
+	validate = () => {
+		let isError = false;
+		const errors = {}
+		if (this.state.username.length != 4) {
+			isError = true;
+			errors.usernameError = "Employee ID must be 4 digits in length"
+		}
+		else if (this.state.firstname.length < 1) {
+			isError = true;
+			errors.firstnameError = "You must enter a first name!"
+		}
+		else if (this.state.lastname.length < 1) {
+			isError = true;
+			errors.lastnameError = "You must enter a last name!"
+		}
+		if (isError) {
+			this.setState({
+				...this.state,
+				...errors
+			})
+		}
+		return isError
+	}
+
 	handleSubmit(event) {
 		event.preventDefault()
 
-		//request to server to add a new username/password
-		axios.post('/user/', {
-			username: this.state.username,
-			password: this.state.password,
-			rolename: this.state.rolename,
-			firstname: this.state.firstname,
-			lastname: this.state.lastname
-		})
-			.then(response => {
-				console.log(response)
-				if (!response.data.error) {
-					alert("New user successfully created")
-					console.log('successful signup')
-					this.setState({
-						username: "",
-						firstname: "",
-						lastname: ""
-					})
-				} else {
-					alert("I'm sorry, there's already a user with that username")
-					console.log('username already taken')
-				}
-			}).catch(error => {
-				console.log('signup error: ')
-				console.log(error)
+		const err = this.validate();
 
+		if (!err) {
+			//request to server to add a new username/password
+			axios.post('/user/', {
+				username: this.state.username,
+				password: this.state.password,
+				rolename: this.state.rolename,
+				firstname: this.state.firstname,
+				lastname: this.state.lastname
 			})
+				.then(response => {
+					console.log(response)
+					if (!response.data.error) {
+						alert("New user successfully created")
+						this.setState({
+							usernameError: "",
+							username: "",
+							firstnameError: "",
+							firstname: "",
+							lastnameError: "",
+							lastname: ""
+						})
+					} else {
+						this.duplicateName();
+					}
+				}).catch(error => {
+					console.log('signup error: ')
+					console.log(error)
+
+				})
+		}
 	}
 
 
+
 	render() {
+		const styles = {
+			color: "red"
+		}
 		return (
 			<div className="SignupForm add-user">
 				<h3 className="signup-title">Add Employee</h3>
@@ -74,6 +121,7 @@ class Signup extends Component {
 								value={this.state.username}
 								onChange={this.handleChange}
 							/>
+							<span style={styles}>{this.state.usernameError}</span>
 						</div>
 					</div>
 					<br></br>
@@ -87,6 +135,7 @@ class Signup extends Component {
 								value={this.state.firstname}
 								onChange={this.handleChange}
 							/>
+							<span style={styles}>{this.state.firstnameError}</span>
 						</div>
 					</div>
 					<br></br>
@@ -100,6 +149,7 @@ class Signup extends Component {
 								value={this.state.lastname}
 								onChange={this.handleChange}
 							/>
+							<span style={styles}>{this.state.lastnameError}</span>
 						</div>
 					</div>
 					<br></br>
