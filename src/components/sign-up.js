@@ -50,6 +50,10 @@ class Signup extends Component {
 			isError = true;
 			errors.usernameError = "Employee ID must be 4 digits in length"
 		}
+		else if (isNaN(this.state.username)) {
+			isError = true;
+			errors.usernameError = "You must enter numbers only"
+		}
 		else if (this.state.firstname.length < 1) {
 			isError = true;
 			errors.firstnameError = "You must enter a first name!"
@@ -69,7 +73,6 @@ class Signup extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
-		console.log(this.state.rolename)
 		const err = this.validate();
 
 		if (!err) {
@@ -163,7 +166,7 @@ class Signup extends Component {
 					<br></br>
 					<div className="form-group">
 						<div className="col-4 col-mr-auto">
-							<Select placeholder=" Role" value={this.state.rolename} onChange={this.handleSelectChange} options={options} />
+							<Select placeholder=" Role" onChange={this.handleSelectChange} options={options} />
 						</div>
 					</div>
 

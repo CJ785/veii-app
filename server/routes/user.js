@@ -106,19 +106,125 @@ router.get('/id/:currentUser', (req, res, next) => {
 router.post('/hremail', (req, res) => {
     const data = req.body;
     console.log('Data: ', data);
-    console.log("HR email made it to the backend");
-    console.log(req.body);
+    console.log("Importance " + data.importance);
     // create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
         to: 'fsf238@gmail.com', // list of receivers
-        subject: 'Message from VEI app', // Subject line
-        //text: event.target.name,
-        text: req.body// plaintext body
+        subject: 'Message from ' + data.name, // Subject line
+        text: `
+        Department: ${data.department}
+        Importance: ${data.importance}
+        Description: ${data.description}`// plaintext body
         // text: req.body.importance,
         // text: req.body.description
+    };
+    //send mail with defined transport object
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
+    res.json('You should have an email');
+});
+
+router.post('/payrollemail', (req, res) => {
+    const data = req.body;
+    console.log('Data: ', data);
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: 'veiappgroupproject3@gmail.com', // sender address
+        to: 'fsf238@gmail.com', // list of receivers
+        subject: 'Message from ' + data.name, // Subject line
+        text: `
+        Department: ${data.department}
+        Description: ${data.description}`// plaintext body
+        // text: req.body.importance,
+        // text: req.body.description
+    };
+    //send mail with defined transport object
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
+    res.json('You should have an email');
+});
+
+router.post('/supervisoremail', (req, res) => {
+    const data = req.body;
+    console.log('Data: ', data);
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: 'veiappgroupproject3@gmail.com', // sender address
+        to: 'fsf238@gmail.com', // list of receivers
+        subject: 'Message from ' + data.name, // Subject line
+        text: `
+        Department: ${data.department}
+        Description: ${data.description}`// plaintext body
+        // text: req.body.importance,
+        // text: req.body.description
+    };
+    //send mail with defined transport object
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
+    res.json('You should have an email');
+});
+
+router.post('/maintenanceemail', (req, res) => {
+    const data = req.body;
+    console.log('Data: ', data);
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: 'veiappgroupproject3@gmail.com', // sender address
+        to: 'fsf238@gmail.com', // list of receivers
+        subject: 'Message from ' + data.name, // Subject line
+        text: `
+        Department: ${data.department}
+        Description: ${data.description}`// plaintext body
+        // text: req.body.importance,
+        // text: req.body.description
+    };
+    //send mail with defined transport object
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+    });
+    res.json('You should have an email');
+});
+
+router.post('/partsreqemail', (req, res) => {
+    const data = req.body;
+    console.log('Data: ', data);
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: 'veiappgroupproject3@gmail.com', // sender address
+        to: 'fsf238@gmail.com', // list of receivers
+        subject: 'Message from ' + data.name, // Subject line
+        text: `
+        Department: ${data.department}
+        Timeframe: ${data.timeFrame}
+        Part Name: ${data.partName}
+        Part ID: ${data.partID}
+        Quantity: ${data.partQuantity}`// plaintext body
     };
     //send mail with defined transport object
     transporter.sendMail(mailOptions, function (error, info) {

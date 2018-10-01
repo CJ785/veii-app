@@ -122,19 +122,14 @@ class Break extends Component {
                     </div>
                     <div className="col-md-12" id="row3">
                         <form>
-                            <div className="form-group">
-                            </div>
-                            <div>
-                                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="i.e. Coffee, Grainger, Body, Trays"></input>
-                            </div>
+
                             <div className="form-group">
                                 <div>
-                                    <button type="button" className="btn" onClick={this.startBreak}>Initiate Restroom Break</button>
-                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak}>Return From Restroom</button>
+
                                     {this.state.onbreak ? (
                                         <button type="button" className="btn btn-secondary btn-lg" onClick={this.endBreak} onChange={this.updateClock}>Return From Break</button>
                                     ) : (
-                                            <button type="button" className="btn btn-primary btn-lg"  onClick={this.startBreak} onChange={this.updateClock}>Initiate Break</button>
+                                            <button type="button" className="btn btn-primary btn-lg" onClick={this.startBreak} onChange={this.updateClock}>Initiate Break</button>
                                         )}
                                 </div>
 

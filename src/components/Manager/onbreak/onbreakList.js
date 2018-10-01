@@ -9,18 +9,27 @@ class OnBreakList extends Component {
     lastbreak(array) {
         return array[array.length - 1].breakstart
     }
+    currentBreak = () => {
+        let employees = this.props.state.employees;
+        if (employees.length > 1) {
+            return
+            employees.map((employee) =>
+                <p key={employee.username}>{employee.firstname} {employee.lastname} on break since {this.lastbreak(employee.startbreak)}</p>
+            );
+        }
+        else {
+            return <p>No Employees currently on break</p>
+
+        }
+    }
 
     render() {
-        let employees = this.props.state.employees;
-        let optionItems = employees.map((employee) =>
-            <option key={employee.username}>{employee.firstname} {employee.lastname} on break since {this.lastbreak(employee.startbreak)}</option>
-        );
-
         return (
-            <p>
-                {optionItems}
-            </p>
+            <div>
+                {this.currentBreak()}
+            </div>
         )
+
     }
 }
 

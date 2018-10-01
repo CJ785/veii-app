@@ -1,56 +1,155 @@
 import React from 'react';
 import "./PartsReq.css";
 import Select from 'react-select'
-function PartsReq(props) {
+import axios from 'axios';
 
-    const options = [
-        { value: '1', label: 'Now' },
-        { value: '2', label: 'Later Today' },
-        { value: '3', label: 'Tomorrow' },
-        { value: '4', label: 'This Week' },
-        { value: '5', label: 'Upcoming Order' }
-    ];
-    const departments = [
-        { value: '1', label: 'Payroll' },
-        { value: '2', label: 'Concerns' },
-        { value: '3', label: 'Employment' },
-        { value: '4', label: 'Records' }
-    ];
-    return (
-        <div className="parts-page">
-            <div className="row" id='hr-page'>
-                <div>
-                    <h3  className="parts-spacer">Parts Request</h3>
-                    <p className="name-spacer-parts" >Hello, {props.name}</p>
-                </div>
-                <div className="col-md-12" id="row3">
-                    <form>
-                        <Select placeholder="Department" options={departments} />
+class PartsReq extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            empName: '',
+            department: '',
+            departmentError: '',
+            timeFrame: '',
+            partName: '',
+            partID: '',
+            partQuantity: ''
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.validate = this.validate.bind(this)
+        this.handleSelectChange = this.handleSelectChange.bind(this)
+        this.handleTimeChange = this.handleTimeChange.bind(this)
+    }
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+    }
 
-                        <hr></hr>
-                        <Select placeholder="How fast do you need parts" options={options} />
-                        <br></br>
-                        <br></br>
+    handleSelectChange = (val) => {
+        console.log(val)
+        this.setState({
+            department: val.value
+        })
+    }
 
-                        <div className="form-row">
-                            <div className="col-md-4 ">
-                                <input  className="form-control" id="validationCustom01" rows="4" placeholder="Part" ></input>
+    handleTimeChange = (time) => {
+        this.setState({
+            timeFrame: time.value
+        })
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const err = this.validate();
+
+        if (!err) {
+            axios.post('/partsreqemail', {
+                name: this.props.name,
+                department: this.state.department,
+                timeFrame: this.state.timeFrame,
+                partName: this.state.partName,
+                partID: this.state.partID,
+                partQuantity: this.state.partQuantity
+            })
+                .then((response) => {
+                    alert("Email succesfully sent");
+                    this.setState({
+                        empName: "",
+                        department: "",
+                        departmentError: "",
+                        timeFrame: "",
+                        partName: "",
+                        partID: "",
+                        partQuantity: ""
+                    })
+
+
+                }).catch((error) => {
+                    console.log('errors: ', error.response)
+                });
+        }
+    }
+
+    validate = () => {
+        let isError = false;
+        const errors = {}
+        if (this.state.department.length < 1) {
+            isError = true;
+            errors.departmentError = "You must enter a department name"
+        }
+        if (isError) {
+            this.setState({
+                ...this.state,
+                ...errors
+            })
+        }
+        return isError
+    }
+
+    render() {
+        const styles = {
+            color: "red"
+        }
+        const timeFrame = [
+            { value: 'Now', label: 'Now' },
+            { value: 'Later Today', label: 'Later Today' },
+            { value: 'Tomorrow', label: 'Tomorrow' },
+            { value: 'This Week', label: 'This Week' },
+            { value: 'Upcoming Order', label: 'Upcoming Order' }
+        ];
+        const departments = [
+            { value: 'Payroll', label: 'Payroll' },
+            { value: 'Concerns', label: 'Concerns' },
+            { value: 'Employment', label: 'Employment' },
+            { value: 'Records', label: 'Records' }
+        ];
+        return (
+
+            <div className="payroll-page">
+                <div className="row" >
+                    <div>
+                        <h3 className="pay-spacer">Parts Request</h3>
+                        <p className="name-spacer-pay">Hello, {this.props.name}</p>
+                    </div>
+                    <div className="col-md-12" id="row3">
+                        <form onSubmit={this.handleSubmit}>
+                            <Select placeholder="Department" onChange={this.handleSelectChange} options={departments} />
+
+                            <hr></hr>
+                            <Select placeholder="How fast do you need parts" onChange={this.handleTimeChange} options={timeFrame} />
+                            <br></br>
+                            <br></br>
+
+                            <div className="form-row">
+                                <div className="col-md-4 ">
+                                    <textarea name="partName" value={this.state.partName}
+                                        onChange={this.handleChange} id="validationCustom01" rows="4" placeholder="Part" ></textarea>
+                                </div>
+                                <div className="col-md-4 ">
+                                    <textarea name="partID" value={this.state.partID}
+                                        onChange={this.handleChange} id="validationCustom02" placeholder=" Id" ></textarea>
+                                </div>
+                                <div className="col-md-4">
+                                    <textarea name="partQuantity" value={this.state.partQuantity}
+                                        onChange={this.handleChange} id="validationCustom02" placeholder="Qty"  ></textarea>
+                                </div>
                             </div>
-                            <div className="col-md-4 ">
-                                <input className="form-control" id="validationCustom02" placeholder=" Id" ></input>
+                            <div id="sub/canBtn">
+                                <button type="submit" className="btn">Submit</button>
                             </div>
-                            <div className="col-md-4">
-                                <input className="form-control" id="validationCustom02" placeholder="Qty"  ></input>
-                            </div>
-                        </div>
-                        <div id="sub/canBtn">
-                            <button type="submit" className="btn">Submit</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+
+        )
+    }
+}
+function PartsReq(props) {
+
+
 }
 
 export default PartsReq;

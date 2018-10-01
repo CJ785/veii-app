@@ -4,16 +4,20 @@ import "./Hr.css";
 
 
 class HR extends React.PureComponent {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             empName: '',
             department: '',
+            departmentError: '',
             importance: '',
-            description: ''
+            importanceError: '',
+            description: '',
+            descriptionError: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.validate = this.validate.bind(this)
     }
     handleChange(event) {
         this.setState({
@@ -22,47 +26,62 @@ class HR extends React.PureComponent {
     }
     handleSubmit(event) {
         event.preventDefault();
-        let dataToSend = {
-            department: event.target.department.value,
-            empName: event.target.name.value,
-            // importance: event.target.importance,
-        }
-        axios.post('/hremail', {
-            transformRequest: [function (data, headers) {
-                JSON.stringify(dataToSend);
-                return data;
-            }],
-            // data: dataToSend
-        })
-            .then((response) => {
-                console.log('data: ', response.data);
-                this.setState({
-                    empName: "",
-                    department: "",
-                    importance: "",
-                    description: ""
-                })
-                // .catch((error) => {
-                //     console.log('errors: ', error.response)
-                // });
-                // // const data = new FormData(event.target);
-                // console.log(event.target);
-                // fetch('/hremail', {
-                //     method: 'POST',
-                //     body: dataToSend,
-                // }).then(response => {
-                //     console.log(this.state.description);
-                //     console.log("hr email sent on submit");
-                //     this.setState({
-                //         empName: "",
-                //         department: "",
-                //         importance: "",
-                //         description: ""
-                //     })
-                // })
+        const err = this.validate();
+
+        if (!err) {
+            axios.post('/hremail', {
+                name: this.props.name,
+                department: this.state.department,
+                importance: this.state.importance,
+                description: this.state.description,
             })
+                .then((response) => {
+                    alert("Email succesfully sent");
+                    this.setState({
+                        empName: "",
+                        department: "",
+                        departmentError: "",
+                        importance: "",
+                        importanceError: "",
+                        description: "",
+                        descriptionError: ""
+                    })
+
+
+                }).catch((error) => {
+                    console.log('errors: ', error.response)
+                });
+        }
     }
+
+    validate = () => {
+        let isError = false;
+        const errors = {}
+        if (this.state.department.length < 1) {
+            isError = true;
+            errors.departmentError = "You must enter a department name"
+        }
+        else if (this.state.importance < 1 || this.state.importance > 5) {
+            isError = true;
+            errors.importanceError = "You must select a value for importance"
+        }
+        else if (this.state.description.length < 1) {
+            isError = true;
+            errors.descriptionError = "You must enter a description"
+        }
+        if (isError) {
+            this.setState({
+                ...this.state,
+                ...errors
+            })
+        }
+        return isError
+    }
+
     render() {
+        const styles = {
+            color: "red"
+        }
         return (
             <div className="container" >
                 <div className="row" id='hr-page'>
@@ -78,7 +97,7 @@ class HR extends React.PureComponent {
                                 id="empName"
                                 value={this.state.empName}
                                 onChange={this.handleChange}
-                            >Name:</label>
+                            >Name: {this.props.name}</label>
                         </div>
                         <div className="form-group ">
                             <label htmlFor="exampleFormControlInput1 ">Department</label>
@@ -90,8 +109,9 @@ class HR extends React.PureComponent {
                                 value={this.state.department}
                                 onChange={this.handleChange}
                             />
+                            <span style={styles}>{this.state.departmentError}</span>
                         </div>
-                        {/* <div className="form-group ">
+                        <div className="form-group ">
                             <label htmlFor="exampleFormControlSelect2 " >How important is this matter?
                             <span >(1 = no rush and 5 = extremely urgent)</span>
                             </label>
@@ -101,13 +121,14 @@ class HR extends React.PureComponent {
                                 value={this.state.importance}
                                 onChange={this.handleChange}
                             >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
-                        </div>  */}
+                            <span style={styles}>{this.state.importanceError}</span>
+                        </div>
                         <div className="form-group ">
                             <label htmlFor="exampleFormControlTextarea1 " name="topic">Please describe your the situation below.</label>
                             <textarea className="form-control "
@@ -118,6 +139,7 @@ class HR extends React.PureComponent {
                                 onChange={this.handleChange}
                             >
                             </textarea>
+                            <span style={styles}>{this.state.descriptionError}</span>
                         </div>
                         <div id="sub/canBtn ">
                             <button type="submit " className="btn btn-success " >Submit</button>
