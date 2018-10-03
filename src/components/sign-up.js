@@ -118,12 +118,12 @@ class Signup extends Component {
 			{ name: "rolename", value: 'Manager', label: 'Manager' }
 		]
 		return (
-			<div className="SignupForm add-user">
+			<div className="SignupForm add-user" id="add-employee">
 				<h3 className="signup-title">Add Employee</h3>
 				<form className="form-horizontal signup-form">
 					<div className="form-group">
 
-						<div className="col-4 col-mr-auto">
+						<div className="col-4 col-mr-auto" >
 							<input className="form-input"
 								type="text"
 								id="username"

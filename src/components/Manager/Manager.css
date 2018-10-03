@@ -12,3 +12,32 @@
     padding: 75px 200px 130px 20px;
 
 }
+
+.edit-user{
+    background-color:  rgb(65, 143, 222);
+    width: 400px;
+    height: 500px;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 0 10px 300px 10px; 
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+#add-employee{
+    background-color: rgb(65, 143, 222);
+     margin-left: auto;
+     margin-right: auto;
+     padding: 0 10px 300px 10px; 
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.signup-title{
+    color: black;
+}
+
+
+

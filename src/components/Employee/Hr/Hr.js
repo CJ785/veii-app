@@ -83,8 +83,8 @@ class HR extends React.PureComponent {
             color: "red"
         }
         return (
-            <div className="container" >
-                <div className="row" id='hr-page'>
+            <div className="container" id='hr-page' >
+                <div className="row" >
                     <div >
                         <h1>EMAIL HR</h1>
                     </div>
@@ -142,7 +142,7 @@ class HR extends React.PureComponent {
                             <span style={styles}>{this.state.descriptionError}</span>
                         </div>
                         <div id="sub/canBtn ">
-                            <button type="submit " className="btn btn-success " >Submit</button>
+                            <button type="submit " className="btn" >Submit</button>
                             <button type="button " className="btn btn-danger ">Clear</button>
                         </div>
                     </form>

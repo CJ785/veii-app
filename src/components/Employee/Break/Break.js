@@ -116,7 +116,7 @@ class Break extends Component {
 
         return (
             <div className="break-page">
-                <div className="row" id='hr-page'>
+                <div className="row" id='break-page'>
                     <div>
                         <h3 className="break-spacer">Break</h3>
                     </div>

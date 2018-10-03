@@ -90,33 +90,37 @@ class Supervisor extends React.PureComponent {
         ];
         return (
 
-            <div className="payroll-page">
+            <div className="sup-page">
                 <div className="row" >
                     <div>
                         <h3 className="pay-spacer">Supervisor Request</h3>
                         <p className="name-spacer-pay">Hello, {this.props.name}</p>
                     </div>
-                    <div className=" col-md-12 ">
+                    <div className="col-md-12" id="row3">
                         <form onSubmit={this.handleSubmit}>
-                            <div className="form-group ">
-                            </div>
-                            <div className="form-group ">
-                                <Select placeholder="Department" onChange={this.handleSelectChange} options={options} />
-
-                            </div>
+                            <input type="text "
+                                className="form-control "
+                                name="department"
+                                id="department"
+                                placeholder="Department"
+                                value={this.state.department}
+                                onChange={this.handleChange}
+                            />
+                            <span style={styles}>{this.state.departmentError}</span>
                             <hr></hr>
-                            <div className="form-group ">
-                                <textarea name="description"
+                            <div className="form-group">
+                                <input type="text"
+                                    name="description"
                                     value={this.state.description}
                                     onChange={this.handleChange}
                                     className="form-control "
-                                    id="exampleFormControlTextarea1 "
+                                    id="exampleFormControlTextarea1"
                                     rows="6 "
-                                    placeholder="Please outline all comments and concerns here."></textarea>
+                                    placeholder="Please outline all comments and concerns here." />
                                 <span style={styles}>{this.state.descriptionError}</span>
                             </div>
                             <div id="sub/canBtn ">
-                                <button type="submit " className="btn">Submit</button>
+                                <button type="submit " className="btn" id="sub-btn">Submit</button>
                             </div>
                         </form>
                     </div>
