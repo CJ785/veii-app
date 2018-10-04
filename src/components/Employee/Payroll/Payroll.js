@@ -106,17 +106,18 @@ class Payroll extends React.PureComponent {
                             </div>
                             <hr></hr>
                             <div className="form-group ">
-                                <textarea name="description"
+                                <input type="text"
+                                    name="description"
                                     value={this.state.description}
                                     onChange={this.handleChange}
                                     className="form-control "
-                                    id="exampleFormControlTextarea1 "
+                                    id="payroll-box"
                                     rows="6 "
-                                    placeholder="Please outline all comments and concerns here."></textarea>
+                                    placeholder="Please outline all comments and concerns here." />
                                 <span style={styles}>{this.state.descriptionError}</span>
                             </div>
                             <div id="sub/canBtn ">
-                                <button type="submit " className="btn">Submit</button>
+                                <button type="submit " className="btn" id="sub-btn">Submit</button>
                             </div>
                         </form>
                     </div>

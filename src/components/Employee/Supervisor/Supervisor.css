@@ -18,7 +18,8 @@
 
 .sup-page {
     background-color:   rgb(65, 143, 222);
-    width: 300px;
+    margin-left: 35%;
+    width: 500px;
     height: 500px;
     padding-bottom: 300px;
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
@@ -37,4 +38,12 @@
     padding-top: 20px;
     text-align: left;
     color: white;
+}
+
+#exampleFormControlTextarea1{
+    height: 100px;
+}
+
+#sun-btn{
+    color: green;
 }

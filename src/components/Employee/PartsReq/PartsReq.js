@@ -14,6 +14,7 @@ class PartsReq extends React.PureComponent {
             partName: '',
             partID: '',
             partQuantity: ''
+
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -108,7 +109,7 @@ class PartsReq extends React.PureComponent {
         ];
         return (
 
-            <div className="payroll-page">
+            <div className="parts-page">
                 <div className="row" >
                     <div>
                         <h3 className="pay-spacer">Parts Request</h3>
@@ -116,34 +117,66 @@ class PartsReq extends React.PureComponent {
                     </div>
                     <div className="col-md-12" id="row3">
                         <form onSubmit={this.handleSubmit}>
-                            <Select placeholder="Department" onChange={this.handleSelectChange} options={departments} />
-
+                            <input type="text "
+                                className="form-control "
+                                name="department"
+                                id="department"
+                                placeholder="Department"
+                                value={this.state.department}
+                                onChange={this.handleChange}
+                            />
+                            <span style={styles}>{this.state.departmentError}</span>
                             <hr></hr>
                             <Select placeholder="How fast do you need parts" onChange={this.handleTimeChange} options={timeFrame} />
                             <br></br>
                             <br></br>
 
-                            <div className="form-row">
+                            <div className="form-row" id="three-box" >
                                 <div className="col-md-4 ">
-                                    <textarea name="partName" value={this.state.partName}
-                                        onChange={this.handleChange} id="validationCustom01" rows="4" placeholder="Part" ></textarea>
+                                    <input type="text"
+                                        className="form-control "
+                                        name="partName"
+                                        id="partName"
+                                        placeholder="Part"
+                                        value={this.state.partName}
+                                        onChange={this.handleChange}
+                                    />
+                                    <span style={styles}>{this.state.partNameError}</span>
                                 </div>
                                 <div className="col-md-4 ">
-                                    <textarea name="partID" value={this.state.partID}
-                                        onChange={this.handleChange} id="validationCustom02" placeholder=" Id" ></textarea>
+                                    {/* <input type="partID" value={this.state.partID}
+                                         onChange={this.handleChange} id="validationCustom01" placeholder=" Id" />  */}
+                                    <input type="text"
+                                        className="form-control "
+                                        name="partID"
+                                        id="partID"
+                                        placeholder="Part ID"
+                                        value={this.state.partID}
+                                        onChange={this.handleChange}
+                                    />
+                                    <span style={styles}>{this.state.partIDError}</span>
                                 </div>
                                 <div className="col-md-4">
-                                    <textarea name="partQuantity" value={this.state.partQuantity}
-                                        onChange={this.handleChange} id="validationCustom02" placeholder="Qty"  ></textarea>
+                                    {/* <input type="partQuantity" value={this.state.partQuantity}
+                                        onChange={this.handleChange} id="validationCustom01" placeholder="Qty" /> */}
+                                    <input type="text "
+                                        className="form-control "
+                                        name="partQuantity"
+                                        id="partQuantity"
+                                        placeholder="Quantity"
+                                        value={this.state.partQuantity}
+                                        onChange={this.handleChange}
+                                    />
+                                    <span style={styles}>{this.state.partQuantityError}</span>
                                 </div>
                             </div>
-                            <div id="sub/canBtn">
+                            <div id="sub-btn">
                                 <button type="submit" className="btn">Submit</button>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
+            </div >
 
         )
     }

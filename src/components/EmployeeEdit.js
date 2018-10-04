@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import EmployeesList from "./EmployeesList"
 
+
 class EmployeeEdit extends Component {
 
     constructor(props) {
@@ -79,7 +80,7 @@ class EmployeeEdit extends Component {
     render() {
         return (
             <div className="edit-user">
-                <EmployeesList getID={this.handleUsername}  />
+                <EmployeesList getID={this.handleUsername} />
                 <div className="EditForm edit-form">
                     <h4 className="edit-title">Edit Employee</h4>
                     <form className="form-horizontal ">
