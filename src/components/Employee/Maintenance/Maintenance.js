@@ -3,7 +3,7 @@ import "./Maintenance.css";
 import Select from 'react-select'
 import axios from 'axios';
 
-class Maintenance extends React.PureComponent {
+export default class Maintenance extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,8 +50,6 @@ class Maintenance extends React.PureComponent {
                         description: "",
                         descriptionError: ""
                     })
-
-
                 }).catch((error) => {
                     console.log('errors: ', error.response)
                 });
@@ -130,5 +128,3 @@ class Maintenance extends React.PureComponent {
         )
     }
 }
-
-export default Maintenance;

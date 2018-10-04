@@ -3,7 +3,11 @@ import Signup from '../sign-up'
 import "./Manager.css"
 import EmployeeEdit from '../EmployeeEdit'
 import EmployeeReport from '../EmployeeReport'
+<<<<<<< Updated upstream
 import onbreak from "./onbreak"
+=======
+import OnBreak from "./onbreak"
+>>>>>>> Stashed changes
 
 class Manager extends Component {
     constructor(props) {

@@ -13,7 +13,6 @@
 }
 
 .hr{
-  
     background-color:  rgb(65, 143, 222);
     width: 161px;
     height: 133px;
@@ -26,10 +25,6 @@
     padding-top: 75px;
     padding-bottom: 70px;
     padding-right: 200px;
-
-    
-    
-
 }
 
 .form-underlabel{

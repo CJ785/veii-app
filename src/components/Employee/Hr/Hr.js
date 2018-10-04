@@ -3,7 +3,7 @@ import axios from 'axios'
 import "./Hr.css";
 
 
-class HR extends React.PureComponent {
+export default class HR extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +27,6 @@ class HR extends React.PureComponent {
     handleSubmit(event) {
         event.preventDefault();
         const err = this.validate();
-
         if (!err) {
             axios.post('/hremail', {
                 name: this.props.name,
@@ -46,8 +45,6 @@ class HR extends React.PureComponent {
                         description: "",
                         descriptionError: ""
                     })
-
-
                 }).catch((error) => {
                     console.log('errors: ', error.response)
                 });
@@ -151,4 +148,3 @@ class HR extends React.PureComponent {
         )
     }
 }
-export default HR;

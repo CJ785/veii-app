@@ -8,11 +8,9 @@
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-  
 }
 
-.maint{
-    
+.maint{   
     background-color: rgb(252, 163, 17);
     width: 161px;
     height: 133px;
@@ -21,11 +19,10 @@
     float: left;
     color: white;
     font-weight: bolder;
-    font-size: 85px;;
+    font-size: 85px;
     padding-top: 75px;
     padding-bottom: 70px;
     padding-right: 200px;
-
 }
 
 .name-spacer-maint{
@@ -33,6 +30,7 @@
     padding-top: 10px;
     text-align: left;
 }
+
 .maint-spacer{
     padding-left: 15px;
     padding-top: 20px;

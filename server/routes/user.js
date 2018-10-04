@@ -3,7 +3,12 @@ const router = express.Router()
 const User = require('../database/models/User')
 const passport = require('../passport')
 const nodemailer = require('nodemailer')
+<<<<<<< Updated upstream
 const smtpTransport = require('nodemailer-smtp-transport');
+=======
+const twilio = require('twilio');
+
+>>>>>>> Stashed changes
 
 router.post('/user/', (req, res) => {
 
@@ -309,5 +314,24 @@ router.post('/user/logout', (req, res) => {
         res.send({ msg: 'no user to log out' })
     }
 })
+
+router.post("/emergency", (req, res, next) => {
+    console.log('emergency text to be sent')
+
+    var client = new twilio('AC12753d97eff4bbfb4447facf65015429', '2c91438f8e8d1da63fee2f0d2b35147b');
+
+    // Send the text message.
+    client.messages.create({
+        to: '330-977-7879',
+        from: '(707) 615-0911',
+        body: 'Someone is dying!!'
+    });
+    (err, result) => {
+        if (err) return res.send(err)
+        res.send(result)
+    }
+    console.log('text sent');
+})
+
 
 module.exports = router
