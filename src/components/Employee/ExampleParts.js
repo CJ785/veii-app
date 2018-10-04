@@ -1,9 +1,12 @@
-import React from 'react';
-import "./PartsReq.css";
+import React, { Component } from 'react'
 import Select from 'react-select'
 import axios from 'axios';
+import Modal from 'react-responsive-modal';;
 
-class PartsReq extends React.PureComponent {
+
+
+export default class ExampleSupervisor extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +16,8 @@ class PartsReq extends React.PureComponent {
             timeFrame: '',
             partName: '',
             partID: '',
-            partQuantity: ''
+            partQuantity: '',
+            open: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -21,7 +25,7 @@ class PartsReq extends React.PureComponent {
         this.handleSelectChange = this.handleSelectChange.bind(this)
         this.handleTimeChange = this.handleTimeChange.bind(this)
     }
-    
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
@@ -89,26 +93,39 @@ class PartsReq extends React.PureComponent {
         return isError
     }
 
-    render() {
-        const styles = {
-            color: "red"
-        }
-        const timeFrame = [
-            { value: 'Now', label: 'Now' },
-            { value: 'Later Today', label: 'Later Today' },
-            { value: 'Tomorrow', label: 'Tomorrow' },
-            { value: 'This Week', label: 'This Week' },
-            { value: 'Upcoming Order', label: 'Upcoming Order' }
-        ];
-        const departments = [
-            { value: 'Payroll', label: 'Payroll' },
-            { value: 'Concerns', label: 'Concerns' },
-            { value: 'Employment', label: 'Employment' },
-            { value: 'Records', label: 'Records' }
-        ];
-        return (
 
-            <div className="payroll-page">
+      onOpenModal = () => {
+        this.setState({ open: true });
+      };
+     
+      onCloseModal = () => {
+        this.setState({ open: false });
+      };
+
+
+  render() {
+    const styles = {
+        color: "red"
+    }
+    const timeFrame = [
+        { value: 'Now', label: 'Now' },
+        { value: 'Later Today', label: 'Later Today' },
+        { value: 'Tomorrow', label: 'Tomorrow' },
+        { value: 'This Week', label: 'This Week' },
+        { value: 'Upcoming Order', label: 'Upcoming Order' }
+    ];
+    const departments = [
+        { value: 'Payroll', label: 'Payroll' },
+        { value: 'Concerns', label: 'Concerns' },
+        { value: 'Employment', label: 'Employment' },
+        { value: 'Records', label: 'Records' }
+    ];
+    return (
+      
+      <div>
+           <button  className="preq"onClick={this.onOpenModal}><p className="gotti">Parts</p></button>
+        <Modal open={this.state.open} onClose={this.onCloseModal} center>
+        <div className="parts-page">
                 <div className="row" >
                     <div>
                         <h3 className="pay-spacer">Parts Request</h3>
@@ -144,13 +161,8 @@ class PartsReq extends React.PureComponent {
                     </div>
                 </div>
             </div>
-
-        )
-    }
+         
+        </Modal>
+      </div>
+    )}
 }
-function PartsReq(props) {
-
-
-}
-
-export default PartsReq;

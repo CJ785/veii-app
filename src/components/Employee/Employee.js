@@ -6,14 +6,32 @@ import Maintenance from "./Maintenance"
 import PartsReq from "./PartsReq"
 import Payroll from "./Payroll"
 import Supervisor from "./Supervisor"
+import Example from "./Example"
+import ExampleSupervisor from "./ExampleSupervisor"
+import ExamplePayroll from "./ExamplePayroll"
+import ExampleParts from "./ExampleParts"
+import ExampleHR from "./ExampleHR"
+import ExampleBreak from "./ExampleBreak"
+// import Modal from 'react-responsive-modal';;
+
 
 class Employee extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            buttonPressed: 0
+            buttonPressed: 0,
+            show: false
             // 0 could be your default view
         }
+    }
+
+
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
     }
 
     handleClick = (deptBtn) => {
@@ -25,36 +43,36 @@ class Employee extends Component {
             return (
                 <div className="container">
                     <div className="  row">
-                        <div className="break col-sm-3 " id="#" onClick={() => this.handleClick(5)}>
-                            <h3 className="block-spacer">Break</h3>
+                        <div className=" col-sm-4" >
+
+                            <ExampleBreak name={this.props.name} />
+
                         </div>
-                        <div className="col-sm-9" id="">
-                            <div className=" row" id="#">
-                                <div className=" hr col-sm-4" onClick={() => this.handleClick(1)} >
-                                    <h3 className="block-spacer">Human Resources</h3>
-                                </div>
 
-                                <div id="#" className=" maint col-sm-4" onClick={() => this.handleClick(6)}>
-                                    <h3 className="block-spacer">Maintenance</h3>
-                                </div>
+                        <div id="#" className="  col-sm-4">
+                            <ExampleHR name={this.props.name} />
+                        </div>
 
-                                <div className=" supervisor col-sm-4" id="" onClick={() => this.handleClick(2)}>
-                                    <h3 className="">Supervisor</h3>
-                                </div>
-                                <div className="  payroll col-sm-6" id="" onClick={() => this.handleClick(4)}>
-                                    <h3 className="">Payroll</h3>
-                                </div>
-
-                                <div className="preq col-sm-6" id=" #" onClick={() => this.handleClick(3)}>
-                                    <h3 className="">Parts </h3>
-                                </div>
-
-                            </div>
-
-
+                        <div className="  col-sm-4" id="">
+                            <Example name={this.props.name} />
                         </div>
                     </div>
+                    <div className=" row" id="#" >
+                        <div className="   col-sm-4" id="" >
+                            <ExampleSupervisor name={this.props.name} />
+                        </div>
+
+                        <div className=" col-sm-4" id=" #" >
+                            <ExamplePayroll name={this.props.name} />
+                        </div>
+                        <div className=" col-sm-4" id=" #" >
+                            <ExampleParts name={this.props.name} />
+                        </div>
+
+                    </div>
+
                 </div>
+
 
 
             )

@@ -1,13 +1,14 @@
 .hr-page {
    
-    background-color: rgb(65, 143, 222); 
-    margin-left: 35%;
+    background-color: rgb(65, 143, 222);
     width: 300px;
     height: 500px;
-    padding-bottom: 300px;
+    padding: 0 -10px -300px -10px; 
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    
+   
     
 }
 
@@ -51,4 +52,7 @@
     color: white;
     width: 325px;
     padding-top: 20px;
+}
+.gotti{
+    font-size: 19px;
 }

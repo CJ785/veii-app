@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../database/models/User')
 const passport = require('../passport')
 const nodemailer = require('nodemailer')
+const smtpTransport = require('nodemailer-smtp-transport');
 
 router.post('/user/', (req, res) => {
 
@@ -108,7 +109,7 @@ router.post('/hremail', (req, res) => {
     console.log('Data: ', data);
     console.log("Importance " + data.importance);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -135,7 +136,7 @@ router.post('/payrollemail', (req, res) => {
     const data = req.body;
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -161,7 +162,8 @@ router.post('/supervisoremail', (req, res) => {
     const data = req.body;
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    // var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -184,10 +186,12 @@ router.post('/supervisoremail', (req, res) => {
 });
 
 router.post('/maintenanceemail', (req, res) => {
+
     const data = req.body;
+    
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -202,7 +206,7 @@ router.post('/maintenanceemail', (req, res) => {
     //send mail with defined transport object
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-            return console.log(error);
+            return console.log(` ${error} this sis the error`);
         }
         console.log('Message sent: ' + info.response);
     });
@@ -213,7 +217,7 @@ router.post('/partsreqemail', (req, res) => {
     const data = req.body;
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
