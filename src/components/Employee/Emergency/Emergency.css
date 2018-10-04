@@ -1,0 +1,30 @@
+/* .emerg {
+    background-color: red;
+    color: white;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding-top: 25px;
+    font-weight: bolder;
+    width: 161px;
+    float: left;
+    height: 150px;
+    font-size: 85px;
+
+
+} */
+
+.emerg {
+    background-color: red;
+    width: 161px;
+    height: 133px;
+    padding: 10px;
+    margin: 20px 40px 10px 50px;
+    float: left;
+    color: white;
+    font-weight: 400;
+    font-size: 30px;;
+    padding-top: 75px;
+    padding-top: 75px;
+    padding-bottom: 70px;
+    padding-right: 200px;
+}
