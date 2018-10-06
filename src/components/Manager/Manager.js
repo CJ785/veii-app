@@ -3,7 +3,7 @@ import Signup from '../sign-up'
 import "./Manager.css"
 import EmployeeEdit from '../EmployeeEdit'
 import EmployeeReport from '../EmployeeReport'
-import onbreak from "./onbreak"
+import OnBreak from "./OnBreak"
 
 class Manager extends Component {
     constructor(props) {
@@ -71,7 +71,7 @@ class Manager extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    {<onbreak />}
+                    <OnBreak />
                 </div>
 
             )
