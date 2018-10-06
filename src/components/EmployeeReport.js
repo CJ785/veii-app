@@ -62,7 +62,7 @@ class EmployeeReport extends Component {
 
 
         return (
-            <div>
+            <div className="payroll">
                 <EmployeesList getID={this.handleUsername} />
                 <div className="EmployeeBreaks">
                     {/* Ternary that will only display the employee's breaks history once an employee has been chosen */}
