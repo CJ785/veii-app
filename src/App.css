@@ -25,7 +25,8 @@
     background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
 }
 .logoutbtn{
-  margin-right: 100%;
+  margin-right: 48%;
+  margin-left: -50%;
 }
 
 .App-title {
@@ -58,6 +59,6 @@
 
 .user-name{
   padding-left: 55%;
-  
 }
+
 
