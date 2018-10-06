@@ -22,7 +22,7 @@ class PartsReq extends React.PureComponent {
         this.handleSelectChange = this.handleSelectChange.bind(this)
         this.handleTimeChange = this.handleTimeChange.bind(this)
     }
-    
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value,
@@ -116,7 +116,9 @@ class PartsReq extends React.PureComponent {
                         <p className="name-spacer-pay">Hello, {this.props.name}</p>
                     </div>
                     <div className="col-md-12" id="row3">
+
                         <form onSubmit={this.handleSubmit}>
+                            <label htmlFor="exampleFormControlInput1 ">Department</label>
                             <input type="text "
                                 className="form-control "
                                 name="department"
