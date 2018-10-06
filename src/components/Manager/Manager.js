@@ -3,19 +3,13 @@ import Signup from '../sign-up'
 import "./Manager.css"
 import EmployeeEdit from '../EmployeeEdit'
 import EmployeeReport from '../EmployeeReport'
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-import onbreak from "./onbreak"
-=======
-import OnBreak from "./onbreak"
->>>>>>> Stashed changes
-=======
-import OnBreak from "./OnBreak"
+import OnBreak from "./OnBreak/onbreak"
+// import OnBreak from "./onbreak"
 import ExampleSignUp from "../ExampleSignUp"
 import ExampleEmployeeReport from "../ExampleEmployeeReport"
 import ExampleEmployeeEdit from "../ExampleEmployeeEdit"
 import ExampleOnBreak from "../ExampleOnBreak"
->>>>>>> 85195dbd1cbd6c27b03681ba134890b70fd8233e
+
 
 class Manager extends Component {
     constructor(props) {

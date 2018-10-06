@@ -15,7 +15,7 @@
 
 .emerg {
     background-color: red;
-    width: 161px;
+    width: 85.5%;
     height: 133px;
     padding: 10px;
     margin: 20px 40px 10px 50px;
@@ -27,4 +27,5 @@
     padding-top: 75px;
     padding-bottom: 70px;
     padding-right: 200px;
+    text-align: center;
 }

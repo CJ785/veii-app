@@ -16,7 +16,7 @@ export default class Emergency extends React.PureComponent {
 
     render() {
         return (
-            <div onClick={() => this.handleClick()}>Emergency</div>
+            <div onClick={() => this.handleClick()}><p className="gotti">Emergency</p></div>
         )
     }
 }

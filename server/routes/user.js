@@ -3,12 +3,9 @@ const router = express.Router()
 const User = require('../database/models/User')
 const passport = require('../passport')
 const nodemailer = require('nodemailer')
-<<<<<<< Updated upstream
 const smtpTransport = require('nodemailer-smtp-transport');
-=======
 const twilio = require('twilio');
 
->>>>>>> Stashed changes
 
 router.post('/user/', (req, res) => {
 

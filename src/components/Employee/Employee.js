@@ -6,7 +6,6 @@ import Maintenance from "./Maintenance"
 import PartsReq from "./PartsReq"
 import Payroll from "./Payroll"
 import Supervisor from "./Supervisor"
-<<<<<<< Updated upstream
 import Example from "./Example"
 import ExampleSupervisor from "./ExampleSupervisor"
 import ExamplePayroll from "./ExamplePayroll"
@@ -15,9 +14,7 @@ import ExampleHR from "./ExampleHR"
 import ExampleBreak from "./ExampleBreak"
 // import Modal from 'react-responsive-modal';;
 
-=======
 import Emergency from './Emergency'
->>>>>>> Stashed changes
 
 class Employee extends Component {
     constructor(props) {
@@ -51,23 +48,9 @@ class Employee extends Component {
 
                             <ExampleBreak name={this.props.name} />
 
-<<<<<<< Updated upstream
-                        </div>
-=======
-                                <div className=" supervisor col-sm-4" id="" onClick={() => this.handleClick(2)}>
-                                    <h3 className="">Supervisor</h3>
-                                </div>
-                                <div className="  payroll col-sm-6" id="" onClick={() => this.handleClick(4)}>
-                                    <h3 className="">Payroll</h3>
-                                </div>
 
-                                <div className="preq col-sm-6" id=" #" onClick={() => this.handleClick(3)}>
-                                    <h3 className="">Parts </h3>
-                                </div>
-                                <div className="emerg" className="emerg col-sm-4">
-                                    <Emergency />
-                                </div>
->>>>>>> Stashed changes
+
+                        </div>
 
                         <div id="#" className="  col-sm-4">
                             <ExampleHR name={this.props.name} />
@@ -90,12 +73,11 @@ class Employee extends Component {
                         </div>
 
                     </div>
-<<<<<<< Updated upstream
-
-                </div>
-=======
+                    <div className="col-md-12 emerg" className="emerg">
+                        <Emergency />
+                    </div>
                 </div >
->>>>>>> Stashed changes
+            
 
 
 
