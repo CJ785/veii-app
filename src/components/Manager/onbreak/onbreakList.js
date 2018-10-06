@@ -17,12 +17,12 @@ class OnBreakList extends Component {
         if (employees.length >= 1) {
             return(
             employees.map((employee) =>
-                <p key={employee.username}>{employee.firstname} {employee.lastname} on break since {this.lastbreak(employee.startbreak)}</p>
+                <p className="gotti" key={employee.username}>{employee.firstname} {employee.lastname} on break since {this.lastbreak(employee.startbreak)}</p>
             )
         )
         }
         else {
-            return <p>No Employees currently on break</p>
+            return <p className="gotti">No Employees currently on break</p>
 
         }
     }
