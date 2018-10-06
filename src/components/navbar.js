@@ -34,14 +34,14 @@ class Navbar extends Component {
             return (
                 <section className="navbar-section">
                     <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-                        <span className="text-secondary">logout</span></Link>
-                    <span className="text-secondary"><p>{this.props.name}</p></span>
+                        <span className=" logoutbtn text-secondary">logout</span></Link>
+                    <span className="text-secondary"><p >{this.props.name}</p></span>
                 </section>
             )
         } else if (this.props.loggedIn === false) {
             return (
                 <section className="navbar-section">
-                    <Link to="/signup"><p className="user">Add User</p></Link>
+                    <Link to="/signup"></Link>
                 </section>
             )
         }

@@ -96,12 +96,6 @@ export default class ExampleSupervisor extends Component {
             color: "red"
 
         }
-        const options = [
-            { value: 'Payroll', label: 'Payroll' },
-            { value: 'Concerns', label: 'Concerns' },
-            { value: 'Employment', label: 'Employment' },
-            { value: 'Records', label: 'Records' }
-        ];
         return (
             <div>
                 <button className="hr" onClick={this.onOpenModal}><p className="gotti">Human Resources</p></button>
@@ -109,7 +103,7 @@ export default class ExampleSupervisor extends Component {
                     <div className="hr-page" >
                         <div className="row" >
                             <div >
-                                <h1>Email Human Services</h1>
+                                <h1>Email Human Resources</h1>
                             </div>
                         </div>
                         <div className=" col-md-12 " id="row3 ">

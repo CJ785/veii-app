@@ -15,9 +15,14 @@ export default class ExampleSupervisor extends Component {
             department: '',
             departmentError: '',
             timeFrame: '',
+            timeFrameError: '',
             partName: '',
+            partNameError: '',
             partID: '',
+            partIDError: '',
             partQuantity: '',
+            partQuantityError: '',
+            partQuantityTypeError: '',
             open: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -66,9 +71,14 @@ export default class ExampleSupervisor extends Component {
                         department: "",
                         departmentError: "",
                         timeFrame: "",
+                        timeFrameError: "",
                         partName: "",
+                        partNameError: "",
                         partID: "",
-                        partQuantity: ""
+                        partIDError: "",
+                        partQuantity: "",
+                        partQuantityError: "",
+                        partQuantityTypeError: ""
                     })
 
 
@@ -84,6 +94,26 @@ export default class ExampleSupervisor extends Component {
         if (this.state.department.length < 1) {
             isError = true;
             errors.departmentError = "You must enter a department name"
+        }
+        else if (this.state.timeFrame.length < 1) {
+            isError = true;
+            errors.timeFrameError = "You must select a timeframe"
+        }
+        else if (this.state.partName.length < 1) {
+            isError = true;
+            errors.partNameError = "You must enter the name of the part you're requesting"
+        }
+        else if (this.state.partID.length < 1) {
+            isError = true;
+            errors.partIDError = "You must enter the ID of the part you're requesting"
+        }
+        else if (this.state.partQuantity.length < 1) {
+            isError = true;
+            errors.partQuantityError = "You must enter the number of parts you're requesting"
+        }
+        else if (isNaN(this.state.partQuantity)) {
+            isError = true;
+            errors.partQuantityTypeError = "You must a numeric value"
         }
         if (isError) {
             this.setState({
