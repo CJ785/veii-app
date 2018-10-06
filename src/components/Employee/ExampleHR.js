@@ -81,98 +81,93 @@ export default class ExampleSupervisor extends Component {
         return isError
     }
 
-     
-      onOpenModal = () => {
+
+    onOpenModal = () => {
         this.setState({ open: true });
-      };
-     
-      onCloseModal = () => {
+    };
+
+    onCloseModal = () => {
         this.setState({ open: false });
-      };
+    };
 
 
-  render() {
-    const styles = {
-        color: "red"
+    render() {
+        const styles = {
+            color: "red"
 
-    }
-    const options = [
-        { value: 'Payroll', label: 'Payroll' },
-        { value: 'Concerns', label: 'Concerns' },
-        { value: 'Employment', label: 'Employment' },
-        { value: 'Records', label: 'Records' }
-    ];
-    return (
-      <div>
-           <button  className="hr" onClick={this.onOpenModal}><p className="gotti">Human Resources</p></button>
-        <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <div className="hr-page" >
-                <div className="row" >
-                    <div >
-                        <h1>EMAIL HR</h1>
-                    </div>
-                </div>
-                <div className=" col-md-12 " id="row3 ">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group ">
-                            <label htmlFor="exampleFormControlInput1 "
-                                name="empName"
-                                id="empName"
-                                value={this.state.empName}
-                                onChange={this.handleChange}
-                            >Name: {this.props.name}</label>
-                    
+        }
+        return (
+            <div>
+                <button className="hr" onClick={this.onOpenModal}><p className="gotti">Human Resources</p></button>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <div className="hr-page" >
+                        <div className="row" >
+                            <div >
+                                <h1>EMAIL HR</h1>
+                            </div>
                         </div>
-                        <div className="form-group ">
-                            <label htmlFor="exampleFormControlInput1 ">Department</label>
-                            <input type="text "
-                                className="form-control "
-                                name="department"
-                                id="department"
-                                placeholder="i.e. Coffee, Grainger etc "
-                                value={this.state.department}
-                                onChange={this.handleChange}
-                            />
-                            <span style={styles}>{this.state.departmentError}</span>
-                        </div>
-                        <div className="form-group ">
-                            <label htmlFor="exampleFormControlSelect2 " >How important is this matter?
+                        <div className=" col-md-12 " id="row3 ">
+                            <form onSubmit={this.handleSubmit}>
+                                <div className="form-group ">
+                                    <label htmlFor="exampleFormControlInput1 "
+                                        name="empName"
+                                        id="empName"
+                                        value={this.state.empName}
+                                        onChange={this.handleChange}
+                                    >Name: {this.props.name}</label>
+
+                                </div>
+                                <div className="form-group ">
+                                    <label htmlFor="exampleFormControlInput1 ">Department</label>
+                                    <input type="text "
+                                        className="form-control "
+                                        name="department"
+                                        id="department"
+                                        placeholder="i.e. Coffee, Grainger etc "
+                                        value={this.state.department}
+                                        onChange={this.handleChange}
+                                    />
+                                    <span style={styles}>{this.state.departmentError}</span>
+                                </div>
+                                <div className="form-group ">
+                                    <label htmlFor="exampleFormControlSelect2 " >How important is this matter?
                             <span >(1 = no rush and 5 = extremely urgent)</span>
-                            </label>
-                            <select multiple className="form-control "
-                                id="importance"
-                                name='importance'
-                                value={this.state.importance}
-                                onChange={this.handleChange}
-                            >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                            <span style={styles}>{this.state.importanceError}</span>
+                                    </label>
+                                    <select multiple className="form-control "
+                                        id="importance"
+                                        name='importance'
+                                        value={this.state.importance}
+                                        onChange={this.handleChange}
+                                    >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <span style={styles}>{this.state.importanceError}</span>
+                                </div>
+                                <div className="form-group ">
+                                    <label htmlFor="exampleFormControlTextarea1 " name="topic">Please describe your the situation below.</label>
+                                    <textarea className="form-control "
+                                        id="description"
+                                        rows="6 "
+                                        name="description"
+                                        value={this.state.description}
+                                        onChange={this.handleChange}
+                                    >
+                                    </textarea>
+                                    <span style={styles}>{this.state.descriptionError}</span>
+                                </div>
+                                <div id="sub/canBtn ">
+                                    <button type="submit " className="btn  " >Submit</button>
+
+                                </div>
+                            </form>
                         </div>
-                        <div className="form-group ">
-                            <label htmlFor="exampleFormControlTextarea1 " name="topic">Please describe your the situation below.</label>
-                            <textarea className="form-control "
-                                id="description"
-                                rows="6 "
-                                name="description"
-                                value={this.state.description}
-                                onChange={this.handleChange}
-                            >
-                            </textarea>
-                            <span style={styles}>{this.state.descriptionError}</span>
-                        </div>
-                        <div id="sub/canBtn ">
-                            <button type="submit " className="btn  " >Submit</button>
-                            
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </Modal>
             </div>
-        </Modal>
-      </div>
-    )}
+        )
+    }
 }
