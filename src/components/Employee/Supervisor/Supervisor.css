@@ -17,13 +17,14 @@
 
 .sup-page {
     background-color:   rgb(65, 143, 222);
-    margin-left: 35%;
-    width: 500px;
-    height: 500px;
-    padding-bottom: 300px;
+    width: 600px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    padding: 0 10px 300px 10px; 
 
 }
 
@@ -43,6 +44,10 @@
     height: 100px;
 }
 
-#sun-btn{
-    color: green;
+#sup-box{
+    height: 50px;
+}
+
+#super-box{
+    height: 200px;
 }

@@ -1,11 +1,11 @@
 .payroll-page{
   
-   background-color:  rgb(252, 163, 17);
+    background-color:  rgb(252, 163, 17);
     margin-left: auto;
-     margin-right: auto;
-    width: 300px;
-    height: 500px;
-    padding: 0 -10px -300px -10px; 
+    margin-right: auto;
+    width: 600px;
+    height: 600px;
+    padding: 0 10px 300px 10px; 
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
@@ -42,14 +42,16 @@
     color: white;
 }
 
-#payroll-box{
-    height:100px;
+#dept-box{
+    height: 50px;
 }
 
-#sub-btn{
-    color:green;
-    text: white;
+#prob-box{
+    height: 250px;
 }
 
+#main-box{
+    height: 200px;
+}
 
 

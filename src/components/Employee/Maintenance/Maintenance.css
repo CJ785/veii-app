@@ -2,7 +2,7 @@
     background-color:  rgb(252, 163, 17);
     margin-left: auto;
     margin-right: auto;
-    width: 350px;
+    width: 600px;
     height: 600px;
     padding: 0 10px 300px 10px; 
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
@@ -42,6 +42,12 @@
     height: 200px;
 }
 
-#sub-btn{
-    color:green;
+
+
+#dept-box{
+    height: 50px;
+}
+
+#prob-box{
+    height: 250px;
 }

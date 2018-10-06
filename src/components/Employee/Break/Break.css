@@ -15,17 +15,17 @@
 }
 
 #break-page{
-      background-color:  rgb(252, 163, 17);
-   margin-left: auto;
-     margin-right: auto;
+    background-color:  rgb(252, 163, 17);
+    margin-left: auto;
+    margin-right: auto;
     width: 300px;
-    height: 200px;
-    padding: 0 10px 300px 10px; 
+    height: 300px;
+    padding: 0 10px 200px 10px; 
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     
-    color: white;
+    color: black;
 }
 
 .break-spacer{
@@ -36,6 +36,10 @@
     text-align: center;
 }
 .btn-background{color: green;}
+
+.App-clock{
+    color: black;
+}
 
 
 /* //rgb(65, 143, 222);} */

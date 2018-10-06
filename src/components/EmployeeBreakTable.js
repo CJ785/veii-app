@@ -26,6 +26,7 @@ class EmployeeBreakTable extends Component {
 
         //loop through all break start times and pushing times to startingtime array
         this.props.state.startbreak.map((employee) => {
+            console.log(`${this.props.state.startbreak} this is startbreak error`);
             startingtime.push(employee.breakstart)
         })
 

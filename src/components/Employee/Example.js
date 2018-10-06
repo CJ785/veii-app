@@ -80,64 +80,72 @@ export default class Example extends Component {
         }
         return isError
     }
-         
-      onOpenModal = () => {
+
+    onOpenModal = () => {
         this.setState({ open: true });
-      };
-     
-      onCloseModal = () => {
+    };
+
+    onCloseModal = () => {
         this.setState({ open: false });
-      };
+    };
 
-  render() {
-    const styles = {
-        color: "red"
-    }
-    const options = [
-        { value: 'Payroll', label: 'Payroll' },
-        { value: 'Concerns', label: 'Concerns' },
-        { value: 'Employment', label: 'Employment' },
-        { value: 'Records', label: 'Records' }
-    ];
-    return (
-      <div>
-           <button className="maint" onClick={this.onOpenModal}><p className="gotti">Maintenance</p></button>
-        <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <div className="payroll-page">
-                <div className="row" >
-                    <div>
-                        <h3 className="pay-spacer">Maintenance Request</h3>
-                        <p className="name-spacer-pay">Hello, {this.props.name}</p>
-                    </div>
-                    <div className=" col-md-12 ">
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="form-group ">
+    render() {
+        const styles = {
+            color: "red"
+        }
+        const options = [
+            { value: 'Payroll', label: 'Payroll' },
+            { value: 'Concerns', label: 'Concerns' },
+            { value: 'Employment', label: 'Employment' },
+            { value: 'Records', label: 'Records' }
+        ];
+        return (
+            <div>
+                <button className="maint" onClick={this.onOpenModal}><p className="gotti">Maintenance</p></button>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <div className="maint-page">
+                        <div className="row" >
+                            <div>
+                                <h3 className="pay-spacer">Maintenance Request</h3>
+                                <p className="name-spacer-pay">Hello, {this.props.name}</p>
                             </div>
-                            <div className="form-group ">
-                                <Select placeholder="Department" onChange={this.handleSelectChange} options={options} />
+                            <div className=" col-md-12 ">
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="form-group ">
+                                    </div>
+                                    <div className="form-group ">
+                                        <input type="text "
+                                            className="form-control "
+                                            name="department"
+                                            id="dept-box"
+                                            placeholder="Department"
+                                            value={this.state.department}
+                                            onChange={this.handleChange}
+                                        />
 
+                                    </div>
+                                    <hr></hr>
+                                    <div className="form-group ">
+                                        <input type="text"
+                                            name="description"
+                                            value={this.state.description}
+                                            onChange={this.handleChange}
+                                            className="form-control "
+                                            id="prob-box"
+                                            rows="6 "
+                                            placeholder="Please outline all comments and concerns here." />
+                                        <span style={styles}>{this.state.descriptionError}</span>
+                                    </div>
+                                    <div id="sub/canBtn ">
+                                        <button type="submit " className="btn">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                            <hr></hr>
-                            <div className="form-group ">
-                                <textarea name="description"
-                                    value={this.state.description}
-                                    onChange={this.handleChange}
-                                    className="form-control "
-                                    id="exampleFormControlTextarea1 "
-                                    rows="6 "
-                                    placeholder="Please outline all comments and concerns here."></textarea>
-                                <span style={styles}>{this.state.descriptionError}</span>
-                            </div>
-                            <div id="sub/canBtn ">
-                                <button type="submit " className="btn">Submit</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </Modal>
+
             </div>
-        </Modal>
-        
-      </div>
-    )
-  }
+        )
+    }
 }

@@ -102,7 +102,7 @@ export default class HR extends React.PureComponent {
                                 className="form-control "
                                 name="department"
                                 id="department"
-                                placeholder="i.e. Coffee, Grainger etc "
+                                placeholder="Name of Department"
                                 value={this.state.department}
                                 onChange={this.handleChange}
                             />

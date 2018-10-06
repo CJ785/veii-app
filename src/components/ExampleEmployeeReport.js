@@ -1,11 +1,11 @@
-// aStatefull componenet for 
-// when you click on somebody on the drop down list 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios'
 import EmployeesList from "./EmployeesList"
 import EmployeeBreakTable from './EmployeeBreakTable'
+import Modal from 'react-responsive-modal';
 
-class EmployeeReport extends Component {
+
+export default class ExampleEmployeeReport extends Component {
 
     constructor(props) {
         super(props);
@@ -15,11 +15,14 @@ class EmployeeReport extends Component {
             firstname: "",
             lastname: "",
             startbreak: "",
-            endbreak: ""
+            endbreak: "",
+            open: false
         };
         this.handleUsername = this.handleUsername.bind(this);
         this.getUser = this.getUser.bind(this);
         this.componentDidUpdate = this.componentDidUpdate.bind(this);
+        // this.onOpenModal = this.onOpenModal.bind(this);
+        // this.onCloseModal = this.onCloseModal.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -56,26 +59,34 @@ class EmployeeReport extends Component {
         })
     }
 
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
 
     render() {
 
-
-
         return (
-            <div className="payroll">
-                <EmployeesList getID={this.handleUsername} />
-                <div className="EmployeeBreaks">
-                    {/* Ternary that will only display the employee's breaks history once an employee has been chosen */}
-                    {this.state.startbreak.length > 0 ? (
-                        <EmployeeBreakTable state={this.state} />
-                    ) : (
-                            null
-                        )}
+   
+            <div>
+                <button className="manager"  onClick={this.onOpenModal}><p className="gotti">Employee Report </p></button>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <EmployeesList getID={this.handleUsername} />
+                    <div className="EmployeeBreaks">
+                        {/* Ternary that will only display the employee's breaks history once an employee has been chosen */}
+                        {this.state.startbreak.length > 0 ? (
+                             <EmployeeBreakTable state={this.state} />
+                         ) : (
+                                null
+                                
+                             )}
 
-                </div>
+                    </div>
+                </Modal>
             </div>
-
         );
     }
 }
-export default EmployeeReport;
