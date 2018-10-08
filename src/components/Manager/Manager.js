@@ -3,7 +3,7 @@ import Signup from '../sign-up'
 import "./Manager.css"
 import EmployeeEdit from '../EmployeeEdit'
 import EmployeeReport from '../EmployeeReport'
-import OnBreak from "./OnBreak/onbreak"
+//import OnBreak from "./OnBreak/onbreak"
 // import OnBreak from "./onbreak"
 import ExampleSignUp from "../ExampleSignUp"
 import ExampleEmployeeReport from "../ExampleEmployeeReport"
@@ -30,26 +30,26 @@ class Manager extends Component {
                     <div className="row">
                         <div className="col-md-6 " id="">
                             <div className="" >
-                            <ExampleSignUp />
+                                <ExampleSignUp />
                             </div>
                         </div>
 
                         <div className="col-md-6 " id="">
                             <div className="deptBtn" >
-                            < ExampleEmployeeEdit/>
+                                < ExampleEmployeeEdit />
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md-6 " id="">
                             <div className="deptBtn" >
-                            <ExampleOnBreak />
+                                <ExampleOnBreak />
 
                             </div>
                         </div>
                         <div className="col-md-6 " id="">
                             <div className="deptBtn" >
-                             <ExampleEmployeeReport />
+                                <ExampleEmployeeReport />
                             </div>
                         </div>
                     </div>
