@@ -24,6 +24,7 @@ class EmployeeEdit extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.username !== prevState.username) {
+            //Every time a new name is selected, grab the username associated and get the correct information
             this.getUser()
         }
     }
@@ -44,7 +45,7 @@ class EmployeeEdit extends Component {
 
     getUser() {
         axios.get('/id/' + this.state.username).then(response => {
-            console.log("Getting new name ", response.data)
+            //update the page to display the selected user's information
             if (response.data) {
 
                 this.setState({
@@ -56,7 +57,6 @@ class EmployeeEdit extends Component {
                     startbreak: response.data.startbreak,
                     endbreak: response.data.endbreak,
                 })
-                console.log("this is your new name ", this.state.firstname)
             } else {
                 null
             }

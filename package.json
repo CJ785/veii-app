@@ -1,5 +1,5 @@
 {
-  "name": "simple-mern-passport",
+  "name": "veii",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,6 +32,9 @@
     "eject": "react-scripts eject",
     "api": "nodemon ./server/server.js",
     "dev": "concurrently \"react-scripts start\" \"nodemon server/server.js\""
+  },
+  "engines": {
+    "node": "8.11.3"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

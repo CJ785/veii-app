@@ -5,7 +5,7 @@ import Modal from 'react-responsive-modal';
 
 
 export default class ExampleEmployeeEdit extends Component {
-      constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
             username: "",
@@ -24,6 +24,7 @@ export default class ExampleEmployeeEdit extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        //If the user clicks on a different employee's name, run the getUser function to get that employee's information from the database
         if (this.state.username !== prevState.username) {
             this.getUser()
         }
@@ -33,7 +34,6 @@ export default class ExampleEmployeeEdit extends Component {
         this.setState({
             username: username
         })
-        console.log("ID retrieved from EmployeeList: ", username)
     }
 
     handleChange(event) {
@@ -44,10 +44,9 @@ export default class ExampleEmployeeEdit extends Component {
     }
 
     getUser() {
+        //Call to the database by the user's unique ID, then update the user fields with the response
         axios.get('/id/' + this.state.username).then(response => {
-            console.log("Getting new name ", response.data)
             if (response.data) {
-
                 this.setState({
                     username: response.data.username,
                     firstname: response.data.firstname,
@@ -57,7 +56,6 @@ export default class ExampleEmployeeEdit extends Component {
                     startbreak: response.data.startbreak,
                     endbreak: response.data.endbreak,
                 })
-                console.log("this is your new name ", this.state.firstname)
             } else {
                 null
             }
@@ -66,6 +64,7 @@ export default class ExampleEmployeeEdit extends Component {
 
     updateUser(event) {
         event.preventDefault();
+        //When a user's information is updated and submitted, send the updated information to the database
         axios.post("/updateUser", {
             username: this.state.username,
             firstname: this.state.firstname,
@@ -73,113 +72,125 @@ export default class ExampleEmployeeEdit extends Component {
             rolename: this.state.rolename,
             activeemployee: this.state.activeemployee
         }).then(response => {
+            if (!response.data.error) {
+                //If a user is updated, the input fields are reset so another user can be edited
+                alert("User successfully updated")
+                this.setState({
+                    firstname: "",
+                    lastname: "",
+                })
+            } else {
+            }
+        }).catch(error => {
+            console.log('edit error: ')
+            console.log(error)
 
         })
 
     }
 
-     
-      onOpenModal = () => {
+
+    onOpenModal = () => {
         this.setState({ open: true });
-      };
-     
-      onCloseModal = () => {
+    };
+
+    onCloseModal = () => {
         this.setState({ open: false });
-      };
-     
-      render() {
-      
+    };
+
+    render() {
+
         return (
-          <div>
-            <button  className="manager" onClick={this.onOpenModal}><p className="gotti">Edit Employee</p></button>
-            <Modal open={this.state.open} onClose={this.onCloseModal} center>
-            <div className="edit-user">
-                <EmployeesList getID={this.handleUsername} />
-                <div className="EditForm edit-form">
-                    <h4 className="edit-title">Edit Employee</h4>
-                    <form className="form-horizontal ">
-                        <div className="form-group">
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="hidden"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Employee ID"
-                                    value={this.state.username}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto somethong">
-                                <label className="form-label" htmlFor="firstname">Firstname</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="text"
-                                    id="firstname"
-                                    name="firstname"
-                                    placeholder="Firstname"
-                                    value={this.state.firstname}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto somethong">
-                                <label className="form-label" htmlFor="lastname">Lastname</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="text"
-                                    id="lastname"
-                                    name="lastname"
-                                    placeholder="Lastname"
-                                    value={this.state.lastname}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto somethong">
-                                <label>Employee Role:</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <select name="rolename" id="rolename" value={this.state.rolename} onChange={this.handleChange}>
-                                    <option value="Employee">Employee</option>
-                                    <option value="Manager">Manager</option>
-                                </select>
-                            </div>
+            <div>
+                <button className="manager" onClick={this.onOpenModal}><p className="gotti">Edit Employee</p></button>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <div className="edit-user">
+                        <EmployeesList getID={this.handleUsername} />
+                        <div className="EditForm edit-form">
+                            <h4 className="edit-title">Edit Employee</h4>
+                            <form className="form-horizontal ">
+                                <div className="form-group">
+                                    <div className="col-3 col-mr-auto">
+                                        <input className="form-input"
+                                            type="hidden"
+                                            id="username"
+                                            name="username"
+                                            placeholder="Employee ID"
+                                            value={this.state.username}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <div className="col-1 col-ml-auto somethong">
+                                        <label className="form-label" htmlFor="firstname">Firstname</label>
+                                    </div>
+                                    <div className="col-3 col-mr-auto">
+                                        <input className="form-input"
+                                            type="text"
+                                            id="firstname"
+                                            name="firstname"
+                                            placeholder="Firstname"
+                                            value={this.state.firstname}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <div className="col-1 col-ml-auto somethong">
+                                        <label className="form-label" htmlFor="lastname">Lastname</label>
+                                    </div>
+                                    <div className="col-3 col-mr-auto">
+                                        <input className="form-input"
+                                            type="text"
+                                            id="lastname"
+                                            name="lastname"
+                                            placeholder="Lastname"
+                                            value={this.state.lastname}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <div className="col-1 col-ml-auto somethong">
+                                        <label>Employee Role:</label>
+                                    </div>
+                                    <div className="col-3 col-mr-auto">
+                                        <select name="rolename" id="rolename" value={this.state.rolename} onChange={this.handleChange}>
+                                            <option value="Employee">Employee</option>
+                                            <option value="Manager">Manager</option>
+                                        </select>
+                                    </div>
 
-                        </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto somethong">
-                                <label>Current Employee:</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <select name="activeemployee" id="activeemployee" value={this.state.activeemployee} onChange={this.handleChange}>
-                                    <option value="true">Yes</option>
-                                    <option value="false">No</option>
-                                </select>
-                            </div>
+                                </div>
+                                <div className="form-group">
+                                    <div className="col-1 col-ml-auto somethong">
+                                        <label>Current Employee:</label>
+                                    </div>
+                                    <div className="col-3 col-mr-auto">
+                                        <select name="activeemployee" id="activeemployee" value={this.state.activeemployee} onChange={this.handleChange}>
+                                            <option value="true">Yes</option>
+                                            <option value="false">No</option>
+                                        </select>
+                                    </div>
 
+                                </div>
+                                <div className="form-group ">
+                                    <div className="col-12"></div>
+                                    <button
+                                        className=" btton-padding btn  "
+                                        onClick={this.updateUser}
+                                        type="submit"
+                                    >Update Employee</button>
+                                </div>
+                            </form>
                         </div>
-                        <div className="form-group ">
-                            <div className="col-12"></div>
-                            <button
-                                className=" btton-padding btn  "
-                                onClick={this.updateUser}
-                                type="submit"
-                            >Update Employee</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </Modal>
             </div>
-            </Modal>
-          </div>
         );
-      }
     }
-    
-     
-   
+}
+
+
+

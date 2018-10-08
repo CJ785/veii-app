@@ -27,7 +27,7 @@ class OnBreak extends Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <h3>Employees On Break:</h3>
                 <OnBreakList state={this.state} />
             </div>

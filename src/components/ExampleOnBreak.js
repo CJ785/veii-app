@@ -7,7 +7,7 @@ import Modal from 'react-responsive-modal';
 
 
 export default class ExampleOnBreak extends Component {
-      constructor() {
+    constructor() {
         super();
         this.state = {
             employees: [],
@@ -18,6 +18,7 @@ export default class ExampleOnBreak extends Component {
 
     componentDidMount() {
         let initialList = [];
+        //Call to the database to get all user's currently on a break
         axios.get('/onBreak/').then(response => {
             initialList = response.data.map((employee) => {
                 return employee
@@ -25,31 +26,33 @@ export default class ExampleOnBreak extends Component {
             this.setState({
                 employees: initialList,
             })
-            //console.log(this.state.employees[0].firstname)
         });
     }
-     
-      onOpenModal = () => {
+
+    onOpenModal = () => {
         this.setState({ open: true });
-      };
-     
-      onCloseModal = () => {
+    };
+
+    onCloseModal = () => {
         this.setState({ open: false });
-      };
-     
-      render() {
+    };
+
+    render() {
         const { open } = this.state;
         return (
-          <div >
-            <button  className="manager" onClick={this.onOpenModal}><p className="gotti">On Break</p></button>
-            <Modal open={this.state.open} onClose={this.onCloseModal} center>
-            <h3>Employees On Break:</h3>
-                <OnBreakList state={this.state.employees} />
-            </Modal>
-          </div>
+            <div >
+                <button className="manager" onClick={this.onOpenModal}><p className="gotti">On Break</p></button>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <div className="breaks">
+                        <h3>Employees Currently On Break:</h3>
+                        <OnBreakList state={this.state.employees} />
+                    </div>
+
+                </Modal>
+            </div>
         );
-      }
-    
+    }
+
 }
 
 

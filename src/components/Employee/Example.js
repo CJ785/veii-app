@@ -122,7 +122,7 @@ export default class Example extends Component {
                                             value={this.state.department}
                                             onChange={this.handleChange}
                                         />
-
+                                        <span style={styles}>{this.state.departmentError}</span>
                                     </div>
                                     <hr></hr>
                                     <div className="form-group ">

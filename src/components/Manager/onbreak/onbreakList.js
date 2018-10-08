@@ -12,17 +12,15 @@ class OnBreakList extends Component {
     }
     currentBreak = () => {
         let employees = this.props.state;
-        console.log(this.props.state);
-        console.log(`${employees} this is where error is holmes!!!!!!!#############` );
         if (employees.length >= 1) {
-            return(
-            employees.map((employee) =>
-                <p className="gotti" key={employee.username}>{employee.firstname} {employee.lastname} on break since {this.lastbreak(employee.startbreak)}</p>
+            return (
+                employees.map((employee) =>
+                    <p className="gotit" key={employee.username}>{employee.firstname} {employee.lastname} on break since {this.lastbreak(employee.startbreak)}</p>
+                )
             )
-        )
         }
         else {
-            return <p className="gotti">No Employees currently on break</p>
+            return <p className="gotit">No Employees currently on break</p>
 
         }
     }

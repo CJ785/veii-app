@@ -1,4 +1,4 @@
-// Shows every break thjat an aemployee has taken, 
+// Shows every break that an employee has taken, 
 // this is the dom part 
 //actual table that is being rendered
 import React, { Component } from 'react';
@@ -50,7 +50,7 @@ class EmployeeBreakTable extends Component {
             else {
                 breaktime += " minutes"
             }
-            table.push(<tr key={[i]}><td>{startingtime[i]}</td><td>{endingtime[i]}</td><td>{breaktime} </td></tr>)
+            table.push(<tr key={[i]}><td>{startingtime[i]}</td><td></td><td>{endingtime[i]}</td><td></td><td>{breaktime}</td></tr>)
 
         }
 
@@ -64,11 +64,14 @@ class EmployeeBreakTable extends Component {
 
         return (
             <div>
+                <h4>Break History</h4>
                 <table>
                     <tbody>
                         <tr>
                             <th>Break Start Time</th>
+                            <th></th>
                             <th>Break End Time</th>
+                            <th></th>
                             <th>Total Break Time</th>
                         </tr>
 

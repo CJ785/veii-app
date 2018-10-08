@@ -111,7 +111,7 @@ router.post('/hremail', (req, res) => {
     console.log('Data: ', data);
     console.log("Importance " + data.importance);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true, service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -138,7 +138,7 @@ router.post('/payrollemail', (req, res) => {
     const data = req.body;
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true, service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -165,7 +165,7 @@ router.post('/supervisoremail', (req, res) => {
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
     // var transporter = nodemailer.createTransport('smtps://veiappgroupproject3@gmail.com:Veiapp123!@smtp.gmail.com');
-    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true, service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -190,10 +190,10 @@ router.post('/supervisoremail', (req, res) => {
 router.post('/maintenanceemail', (req, res) => {
 
     const data = req.body;
-    
+
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true, service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -219,7 +219,7 @@ router.post('/partsreqemail', (req, res) => {
     const data = req.body;
     console.log('Data: ', data);
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true,  service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
+    var transporter = nodemailer.createTransport(smtpTransport({ host: 'smtp.gmail.com', port: 465, secure: true, service: 'Gmail', auth: { user: 'veiappgroupproject3', pass: 'Veiapp123!' }, tls: { rejectUnauthorized: false } }));
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: 'veiappgroupproject3@gmail.com', // sender address
@@ -315,7 +315,7 @@ router.post('/user/logout', (req, res) => {
 router.post("/emergency", (req, res, next) => {
     console.log('emergency text to be sent')
 
-    var client = new twilio('AC12753d97eff4bbfb4447facf65015429', '2c91438f8e8d1da63fee2f0d2b35147b');
+    var client = new twilio('ACa38a6aea492ccdc55215cb4f0ae26055', '9f2e9a884876e6523c448a9b24f24d72');
 
     // Send the text message.
     client.messages.create({
