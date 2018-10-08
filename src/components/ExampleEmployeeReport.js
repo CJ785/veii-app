@@ -21,8 +21,6 @@ export default class ExampleEmployeeReport extends Component {
         this.handleUsername = this.handleUsername.bind(this);
         this.getUser = this.getUser.bind(this);
         this.componentDidUpdate = this.componentDidUpdate.bind(this);
-        // this.onOpenModal = this.onOpenModal.bind(this);
-        // this.onCloseModal = this.onCloseModal.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -70,20 +68,22 @@ export default class ExampleEmployeeReport extends Component {
     render() {
 
         return (
-   
+
             <div>
-                <button className="manager"  onClick={this.onOpenModal}><p className="gotti">Employee Report </p></button>
+                <button className="manager" onClick={this.onOpenModal}><p className="gotti">Employee Break Report </p></button>
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                    <EmployeesList getID={this.handleUsername} />
-                    <div className="EmployeeBreaks">
-                    <br></br>
+
+                    <div className="EmployeeBreaks breaks">
+                        <EmployeesList getID={this.handleUsername} />
+                        <br></br>
+
                         {/* Ternary that will only display the employee's breaks history once an employee has been chosen */}
                         {this.state.startbreak.length > 0 ? (
-                             <EmployeeBreakTable state={this.state} />
-                         ) : (
+                            <EmployeeBreakTable state={this.state} />
+                        ) : (
                                 null
-                                
-                             )}
+
+                            )}
 
                     </div>
                 </Modal>

@@ -3,10 +3,10 @@ import axios from 'axios'
 import Select from 'react-select'
 import "./Employee/Employee.css"
 import Modal from 'react-responsive-modal';
- 
+
 
 export default class ExampleSignUp extends Component {
-      constructor() {
+	constructor() {
 		super()
 		this.state = {
 			username: '',
@@ -16,8 +16,8 @@ export default class ExampleSignUp extends Component {
 			firstname: "",
 			firstnameError: '',
 			lastname: "",
-            lastnameError: '',
-            opem: false
+			lastnameError: '',
+			open: false
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +26,7 @@ export default class ExampleSignUp extends Component {
 		this.duplicateName = this.duplicateName.bind(this)
 		this.handleSelectChange = this.handleSelectChange.bind(this)
 		this.onOpenModal = this.onOpenModal.bind(this);
-        this.onCloseModal = this.onCloseModal.bind(this);
+		this.onCloseModal = this.onCloseModal.bind(this);
 	}
 	handleChange(event) {
 		this.setState({
@@ -34,13 +34,14 @@ export default class ExampleSignUp extends Component {
 		})
 	}
 
+	//Gets the value of the role assigned to the new user
 	handleSelectChange(event) {
-		console.log(event.value)
 		this.setState({
 			rolename: event.value
 		})
 	}
 
+	//In case the chosen user ID is already taken, this informs the manager to enter a different ID
 	duplicateName = () => {
 		const usernameError = "There is already a user with that ID in the system, please choose a different ID";
 		this.setState({
@@ -48,6 +49,7 @@ export default class ExampleSignUp extends Component {
 		})
 	}
 
+	//Validation check on username, firstname, and lastname, all needing to be passed before code is sent to the database
 	validate = () => {
 		let isError = false;
 		const errors = {}
@@ -78,6 +80,7 @@ export default class ExampleSignUp extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
+		//Validation is checked before form can be submitted to database
 		const err = this.validate();
 
 		if (!err) {
@@ -90,8 +93,8 @@ export default class ExampleSignUp extends Component {
 				lastname: this.state.lastname
 			})
 				.then(response => {
-					console.log(response)
 					if (!response.data.error) {
+						//If a new user is created, the input fields and error fields are reset so another user can be added
 						alert("New user successfully created")
 						this.setState({
 							usernameError: "",
@@ -111,92 +114,92 @@ export default class ExampleSignUp extends Component {
 				})
 		}
 	}
-     
-      onOpenModal = () => {
-        this.setState({ open: true });
-      };
-     
-      onCloseModal = () => {
-        this.setState({ open: false });
-      };
-     
-      render() {
-        const styles = {
+
+	onOpenModal = () => {
+		this.setState({ open: true });
+	};
+
+	onCloseModal = () => {
+		this.setState({ open: false });
+	};
+
+	render() {
+		const styles = {
 			color: "red"
 		}
 		const options = [
 			{ name: "rolename", value: 'Employee', label: 'Employee' },
 			{ name: "rolename", value: 'Manager', label: 'Manager' }
 		]
-        return (
-          <div>
-            <button className="manager" onClick={this.onOpenModal}><p className="gotti">Add Employee</p></button>
-            <Modal open={this.state.open} onClose={this.onCloseModal} center>
-            <div className="SignupForm add-user" id="add-employee">
-				<h3 className="signup-title">Add Employee</h3>
-				<form className="form-horizontal signup-form">
-					<div className="form-group">
+		return (
+			<div>
+				<button className="manager" onClick={this.onOpenModal}><p className="gotti">Add Employee</p></button>
+				<Modal open={this.state.open} onClose={this.onCloseModal} center>
+					<div className="SignupForm add-user" id="add-employee">
+						<h3 className="signup-title">Add Employee</h3>
+						<form className="form-horizontal signup-form">
+							<div className="form-group">
 
-						<div className="col-4 col-mr-auto" >
-							<input className="form-input"
-								type="text"
-								id="username"
-								name="username"
-								placeholder="ID"
-								value={this.state.username}
-								onChange={this.handleChange}
-							/>
-							<span style={styles}>{this.state.usernameError}</span>
-						</div>
-					</div>
-					<br></br>
-					<div className="form-group">
-						<div className="col-4 col-mr-auto">
-							<input className="form-input"
-								type="text"
-								id="firstname"
-								name="firstname"
-								placeholder="Firstname"
-								value={this.state.firstname}
-								onChange={this.handleChange}
-							/>
-							<span style={styles}>{this.state.firstnameError}</span>
-						</div>
-					</div>
-					<br></br>
-					<div className="form-group">
-						<div className="col-4 col-mr-auto">
-							<input className="form-input"
-								type="text"
-								id="lastname"
-								name="lastname"
-								placeholder="Lastname"
-								value={this.state.lastname}
-								onChange={this.handleChange}
-							/>
-							<span style={styles}>{this.state.lastnameError}</span>
-						</div>
-					</div>
-					<br></br>
-					<div className="form-group">
-						<div className="col-4 col-mr-auto">
-							<Select placeholder=" Role" onChange={this.handleSelectChange} options={options} />
-						</div>
-					</div>
+								<div className="col-4 col-mr-auto" >
+									<input className="form-input"
+										type="text"
+										id="username"
+										name="username"
+										placeholder="ID"
+										value={this.state.username}
+										onChange={this.handleChange}
+									/>
+									<span style={styles}>{this.state.usernameError}</span>
+								</div>
+							</div>
+							<br></br>
+							<div className="form-group">
+								<div className="col-4 col-mr-auto">
+									<input className="form-input"
+										type="text"
+										id="firstname"
+										name="firstname"
+										placeholder="Firstname"
+										value={this.state.firstname}
+										onChange={this.handleChange}
+									/>
+									<span style={styles}>{this.state.firstnameError}</span>
+								</div>
+							</div>
+							<br></br>
+							<div className="form-group">
+								<div className="col-4 col-mr-auto">
+									<input className="form-input"
+										type="text"
+										id="lastname"
+										name="lastname"
+										placeholder="Lastname"
+										value={this.state.lastname}
+										onChange={this.handleChange}
+									/>
+									<span style={styles}>{this.state.lastnameError}</span>
+								</div>
+							</div>
+							<br></br>
+							<div className="form-group">
+								<div className="col-4 col-mr-auto">
+									<Select placeholder=" Role" onChange={this.handleSelectChange} options={options} />
+								</div>
+							</div>
 
-					<div className="form-group ">
-						<div className="col-12"></div>
-						<button
-							className=" btn btn-primary signup-button "
-							onClick={this.handleSubmit}
-							type="submit"
-						>Add Employee</button>
+							<div className="form-group ">
+								<div className="col-12"></div>
+								<button
+									className=" btn btn-primary signup-button "
+									onClick={this.handleSubmit}
+									type="submit"
+								>Add Employee</button>
+							</div>
+						</form>
 					</div>
-				</form>
+				</Modal>
 			</div>
-            </Modal>
-          </div>
-        );
-      }
-    
+		);
+	}
+
 }

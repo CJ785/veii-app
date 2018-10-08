@@ -18,7 +18,6 @@ export default class ExampleSupervisor extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.validate = this.validate.bind(this)
-        this.handleSelectChange = this.handleSelectChange.bind(this)
     }
 
 
@@ -28,15 +27,9 @@ export default class ExampleSupervisor extends Component {
         })
     }
 
-    handleSelectChange = (val) => {
-        console.log(val)
-        this.setState({
-            department: val.value
-        })
-    }
-
     handleSubmit(event) {
         event.preventDefault();
+        //run form validation before sending information
         const err = this.validate();
 
         if (!err) {
@@ -46,6 +39,7 @@ export default class ExampleSupervisor extends Component {
                 description: this.state.description,
             })
                 .then((response) => {
+                    //if email is sent successfully, reset fields to blank
                     alert("Email succesfully sent");
                     this.setState({
                         empName: "",
@@ -95,12 +89,6 @@ export default class ExampleSupervisor extends Component {
         const styles = {
             color: "red"
         }
-        const options = [
-            { value: 'Payroll', label: 'Payroll' },
-            { value: 'Concerns', label: 'Concerns' },
-            { value: 'Employment', label: 'Employment' },
-            { value: 'Records', label: 'Records' }
-        ];
         return (
             <div>
                 <button className="payroll" onClick={this.onOpenModal}><p className="gotti">Payroll</p></button>
@@ -124,7 +112,7 @@ export default class ExampleSupervisor extends Component {
                                             value={this.state.department}
                                             onChange={this.handleChange}
                                         />
-
+                                        <span style={styles}>{this.state.departmentError}</span>
                                     </div>
                                     <hr></hr>
                                     <div className="form-group ">

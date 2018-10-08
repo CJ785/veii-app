@@ -80,12 +80,7 @@ export default class Maintenance extends React.PureComponent {
         const styles = {
             color: "red"
         }
-        const options = [
-            { value: 'Payroll', label: 'Payroll' },
-            { value: 'Concerns', label: 'Concerns' },
-            { value: 'Employment', label: 'Employment' },
-            { value: 'Records', label: 'Records' }
-        ];
+
         return (
 
             <div className="maint-page">
@@ -96,15 +91,18 @@ export default class Maintenance extends React.PureComponent {
                     </div>
                     <div className=" col-md-12 ">
                         <form onSubmit={this.handleSubmit}>
-                            <input type="text "
-                                className="form-control "
-                                name="department"
-                                id="department"
-                                placeholder="Department"
-                                value={this.state.department}
-                                onChange={this.handleChange}
-                            />
-                            <span style={styles}>{this.state.departmentError}</span>
+                            <div className="form-group">
+                                <label htmlFor="exampleFormControlInput1 ">Department</label>
+                                <input type="text "
+                                    className="form-control "
+                                    name="department"
+                                    id="department"
+                                    placeholder="Department"
+                                    value={this.state.department}
+                                    onChange={this.handleChange}
+                                />
+                                <span style={styles}>{this.state.departmentError}</span>
+                            </div>
                             <hr></hr>
                             <div className="main-box">
                                 <input type="text"

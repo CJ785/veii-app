@@ -15,6 +15,7 @@ class LoginForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.notFound = this.notFound.bind(this)
+        this.validate = this.validate.bind(this)
     }
 
     handleChange(event) {
@@ -22,7 +23,25 @@ class LoginForm extends Component {
             [event.target.name]: event.target.value
         })
     }
-
+    validate = () => {
+        let isError = false;
+        const errors = {}
+        if (this.state.username.length != 4) {
+            isError = true;
+            errors.loginError = "Employee ID must be 4 digits in length"
+        }
+        else if (isNaN(this.state.username)) {
+            isError = true;
+            errors.loginError = "You must enter numbers only"
+        }
+        if (isError) {
+            this.setState({
+                ...this.state,
+                ...errors
+            })
+        }
+        return isError
+    }
     notFound = () => {
         const loginerror = "User not found, please try again";
         this.setState({
@@ -32,40 +51,41 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log('handleSubmit')
+        const err = this.validate();
+        if (!err) {
+            axios
+                .post('/user/login', {
+                    username: this.state.username,
+                    password: this.state.password
+                })
+                .then(response => {
+                    console.log('login response: ')
+                    console.log(response)
+                    if (response.status === 200) {
+                        // update App.js state
+                        this.props.updateUser({
+                            loggedIn: true,
+                            username: response.data.username,
+                            rolename: response.data.rolename,
+                            firstname: response.data.firstname,
+                            lastname: response.data.lastname,
+                            onbreak: response.data.onbreak,
+                            activeemployee: response.data.activeemployee,
+                            startbreak: response.data.startbreak,
+                            endbreak: response.data.endbreak
+                        })
+                        // update the state to redirect to home
+                        this.setState({
+                            redirectTo: '/'
+                        })
+                    }
+                }).catch(error => {
+                    this.notFound();
+                    console.log('login error: ')
+                    console.log(error);
 
-        axios
-            .post('/user/login', {
-                username: this.state.username,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log('login response: ')
-                console.log(response)
-                if (response.status === 200) {
-                    // update App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        username: response.data.username,
-                        rolename: response.data.rolename,
-                        firstname: response.data.firstname,
-                        lastname: response.data.lastname,
-                        onbreak: response.data.onbreak,
-                        activeemployee: response.data.activeemployee,
-                        startbreak: response.data.startbreak,
-                        endbreak: response.data.endbreak
-                    })
-                    // update the state to redirect to home
-                    this.setState({
-                        redirectTo: '/'
-                    })
-                }
-            }).catch(error => {
-                this.notFound();
-                console.log('login error: ')
-                console.log(error);
-
-            })
+                })
+        }
     }
 
     render() {

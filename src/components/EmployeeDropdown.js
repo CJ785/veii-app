@@ -19,10 +19,9 @@ class EmployeeDropdown extends Component {
 
     }
 
-
-
     render() {
         let employees = this.props.state.employees;
+        //create dropdown of employee names, saving the username as the value so it can be used to search
         let optionItems = employees.map((employee) =>
             <option value={employee.username} key={employee.username} >{employee.firstname} {employee.lastname}</option>
         );

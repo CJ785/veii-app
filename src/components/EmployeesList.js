@@ -16,6 +16,7 @@ class EmployeesList extends Component {
     }
 
     componentDidMount() {
+        //Dropdown list of all active employees, sorted by lastname
         let initialEmployees = [];
         axios.get('/employees/').then(response => {
             initialEmployees = response.data.map((employee) => {
@@ -42,7 +43,7 @@ class EmployeesList extends Component {
     render() {
         return (
             <div>
-                <h3>Employees:</h3>
+                <h3>Select an Employee:</h3>
                 <EmployeeDropdown state={this.state} getInput={this.handleID} />
             </div>
 
