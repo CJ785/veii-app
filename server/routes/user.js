@@ -315,7 +315,7 @@ router.post('/user/logout', (req, res) => {
 router.post("/emergency", (req, res, next) => {
     console.log('emergency text to be sent')
 
-    var client = new twilio('ACa38a6aea492ccdc55215cb4f0ae26055', '9f2e9a884876e6523c448a9b24f24d72');
+    var client = new twilio('AC12753d97eff4bbfb4447facf65015429', '2c91438f8e8d1da63fee2f0d2b35147b');
 
     // Send the text message.
     client.messages.create({

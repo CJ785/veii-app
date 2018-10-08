@@ -73,11 +73,11 @@ class Employee extends Component {
                         </div>
 
                     </div>
-                    <div className="col-md-12 emerg" className="emerg">
+                    <div >
                         <Emergency />
                     </div>
                 </div >
-            
+
 
 
 

@@ -8,7 +8,7 @@ export default class Emergency extends React.PureComponent {
     handleClick(e) {
         // e.preventDefault();
         console.log('front end text log');
-
+        alert("Emergency Message Sent!")
         axios.post('/emergency', {
 
         });
@@ -16,7 +16,7 @@ export default class Emergency extends React.PureComponent {
 
     render() {
         return (
-            <div onClick={() => this.handleClick()}><p className="gotti">Emergency</p></div>
+            <div onClick={() => this.handleClick()}><p className="gotti row emerg">Emergency</p></div>
         )
     }
 }
