@@ -29,6 +29,8 @@ app.use(
     })
 )
 
+app.use(express.static(path.join(__dirname, "../build")))
+
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
