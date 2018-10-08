@@ -1,7 +1,11 @@
 # Project 3-VEII
 
-
-Anthony Koch, Devin Mallet, Steve Mazanec, Jason Way, Johnson Okeleye
+## Contributors 
+- Anthony Koch
+- Devin Mallett 
+- Steve Mazanec 
+- Jason Way 
+- Johnson Okeleye
 ___________________________________________________________________________________________________________________________________________
 ## Overview
 
