@@ -64,12 +64,12 @@ class EmployeeBreakTable extends Component {
 
         return (
             <div>
-                <table>
+                <table className="tcontainer">
                     <tbody>
                         <tr>
-                            <th>Break Start Time</th>
-                            <th>Break End Time</th>
-                            <th>Total Break Time</th>
+                            <th>Break Start</th>
+                            <th>Break End</th>
+                            <th>Total Time</th>
                         </tr>
 
                         {this.createTable()}

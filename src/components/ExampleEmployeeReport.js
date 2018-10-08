@@ -76,6 +76,7 @@ export default class ExampleEmployeeReport extends Component {
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
                     <EmployeesList getID={this.handleUsername} />
                     <div className="EmployeeBreaks">
+                    <br></br>
                         {/* Ternary that will only display the employee's breaks history once an employee has been chosen */}
                         {this.state.startbreak.length > 0 ? (
                              <EmployeeBreakTable state={this.state} />

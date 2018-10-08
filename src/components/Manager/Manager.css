@@ -36,8 +36,79 @@
 }
 
 .signup-title{
-    color: black;
+    color: whitesmoke;
+}
+
+.tcontainer{
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 
+.tcontainer th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: whitesmoke;
+}
 
+.tcontainer td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px rgb(252, 163, 17);
+	   -moz-box-shadow: 0 2px 2px -2px rgb(252, 163, 17);
+	        box-shadow: 0 2px 2px -2px rgb(252, 163, 17);
+}
+
+.tcontainer {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.tcontainer td, .tcontainer th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.tcontainer tr:nth-child(odd) {
+	  background-color: rgb(65, 143, 222);
+}
+
+/* Background-color of the even rows */
+.tcontainer tr:nth-child(even) {
+	  background-color: rgb(65, 143, 222);;
+}
+
+.tcontainer th {
+	  background-color:whitesmoke;;
+}
+
+.tcontainer td:first-child { color: rgb(252, 163, 17); }
+
+.tcontainer tr:hover {
+   background-color: whitesmoke;
+-webkit-box-shadow: 0 6px 6px -6px rgb(252, 163, 17);
+	   -moz-box-shadow: 0 6px 6px -6px rgb(252, 163, 17);
+	        box-shadow: 0 6px 6px -6px rgb(252, 163, 17);
+}
+
+.tcontainer td:hover {
+  background-color: rgb(65, 143, 222);
+  color: rgb(252, 163, 17) ;
+  font-weight: bold;
+  
+  box-shadow: rgb(252, 163, 17) -1px 1px, rgb(252, 163, 17) -2px 2px, rgb(252, 163, 17) -3px 3px, rgb(252, 163, 17) -4px 4px, rgb(252, 163, 17) -5px 5px, rgb(252, 163, 17) -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
