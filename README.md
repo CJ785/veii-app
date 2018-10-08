@@ -2,7 +2,7 @@
 
 ## Contributors 
 - Anthony Koch
-- Devin Mallet 
+- Devin Mallett 
 - Steve Mazanec 
 - Jason Way 
 - Johnson Okeleye
