@@ -1,6 +1,6 @@
 # Project 3-VEII
 
-
+## Contributors 
 - Anthony Koch
 - Devin Mallet 
 - Steve Mazanec 
