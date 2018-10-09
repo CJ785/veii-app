@@ -77,7 +77,7 @@ class Manager extends Component {
             return (
                 <div className="conditional">
                     <button className='button' onClick={() => this.handleClick(0)}> BACK </button>
-                    <OnBreak />
+                    <ExampleOnBreak />
                 </div>
 
             )
