@@ -10,6 +10,8 @@ const PORT = process.env.PORT || 8080
 // Route requires
 const user = require('./routes/user')
 
+dbConnection.on('error', console.error.bind(console, 'connection error: '))
+
 // MIDDLEWARE
 app.use(morgan('dev'))
 app.use(
@@ -41,6 +43,9 @@ app.use('/', user)
 
 
 // Starting Server 
-app.listen(PORT, () => {
-    console.log(`App listening on PORT: ${PORT}`)
+dbConnection.once('open', function () {
+    app.listen(PORT, () => {
+        console.log(`App listening on PORT: ${PORT}`)
+    })
+
 })
