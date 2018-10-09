@@ -5,7 +5,7 @@ import EmployeeBreakTable from './EmployeeBreakTable'
 import Modal from 'react-responsive-modal';
 
 
-export default class ExampleEmployeeReport extends Component {
+class ExampleEmployeeReport extends Component {
 
     constructor(props) {
         super(props);
@@ -91,3 +91,5 @@ export default class ExampleEmployeeReport extends Component {
         );
     }
 }
+
+export default ExampleEmployeeReport;
