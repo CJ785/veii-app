@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import OnBreakList from "./Manager/OnBreak/onbreakList"
+import OnBreakList from "./Manager/OnBreak/OnBreakList"
 import Modal from 'react-responsive-modal';
 
 
