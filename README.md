@@ -14,7 +14,7 @@ VEII is an employee productivity app meant to help streamline workflow and impro
 VEII is built with Reactjs, MongoDB, Passport, Node, React Select, Express, and Node Mailer.
 ___________________________________________________________________________________________________________________________________________
 ## Link To Deployed Project 
-*heroku link goes here*
+https://veii-app.herokuapp.com/login
 ___________________________________________________________________________________________________________________________________________
 
 
